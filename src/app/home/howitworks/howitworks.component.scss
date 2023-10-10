@@ -1,0 +1,32 @@
+.tile {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: #ff9b5413; /* Set background color for tiles */
+  }
+
+  .tile-icon {
+    margin-right: 20px;
+  }
+
+  .tile-content {
+    flex: 1;
+  }
+
+  .tile-title {
+    font-weight: bold;
+  }
+
+  .tile-subtitle {
+    color: #808080; /* Grey color for subtitle */
+  }
+
+
+  .section-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

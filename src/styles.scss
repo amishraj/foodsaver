@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+.button.is-primary {
+    background-color: #FF9B54;
+/* You can also set other styles such as border color, text color, etc. */
+}
+
+/* Optionally, change the hover color */
+.button.is-primary:hover {
+    background-color: #FF7F51;
+}
+
+.button.is-secondary {
+    background-color: #CE4257;
+    color: white;
+    border-color: rgba(0, 0, 0, 0);
+/* You can also set other styles such as border color, text color, etc. */
+}
+
+/* Optionally, change the hover color */
+.button.is-secondary:hover {
+    background-color: #720026;
+}
+
+.navbar-link{
+}
+
+.navbar-link:hover{
+    color: #FF7F51;
+}
+
+.navbar-item:hover{
+    color: #FF7F51;
+}
+
+.navbar-item:hover{
+    color: #FF7F51;
+}
