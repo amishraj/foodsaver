@@ -1,0 +1,64 @@
+<section class="section is-small">
+    <div class="container is-fluid">
+        <h1 class="title columns is-centered is-full">
+            <strong>Login</strong>
+        </h1>
+        <br>
+        <h2 class="subtitle columns is-centered">
+            Login to your account to start reserving meals
+        </h2>
+    </div>
+</section>
+
+<div class="login-container">
+    <div class="login-box">
+        <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+            <div class="field login-input">
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input name="email" ngModel class="input" type="text" placeholder="Enter your email"
+                        #emailInput="ngModel" required email [class.is-danger]="emailInput.invalid && emailInput.dirty && emailInput.value" 
+                        [class.is-success]="emailInput.valid && emailInput.dirty && emailInput.value">
+
+                    <span class="icon is-small is-right" *ngIf="emailInput.valid && emailInput.dirty && emailInput.value">
+                        <i class="fas fa-check"></i>
+                    </span>
+
+                    <span class="icon is-small is-right" *ngIf="emailInput.invalid && emailInput.dirty && emailInput.value">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </span>
+
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    
+                </div>
+
+                <p *ngIf="emailInput.invalid && emailInput.dirty && emailInput.value" class="help is-danger">This email
+                    is invalid</p>
+                <p *ngIf="emailInput.valid && emailInput.dirty && emailInput.value" class="help is-success">This email
+                    is valid!</p>
+            </div>
+
+            <div class="field login-input">
+                <label class="label">Password</label>
+                <div class="control has-icons-left">
+                    <input name="password" ngModel class="input" type="password" placeholder="Enter your password"
+                        #passwordInput="ngModel" required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </div>
+                <p *ngIf="passwordInput.invalid && passwordInput.dirty && passwordInput.value" class="help is-danger">
+                    This password is invalid</p>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary login-button">Login</button>
+                    <span *ngIf="isLoading" class="spinner"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
