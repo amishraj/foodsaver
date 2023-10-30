@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 .button.is-primary {
     background-color: #FF9B54;
-/* You can also set other styles such as border color, text color, etc. */
+    /* You can also set other styles such as border color, text color, etc. */
 }
 
 /* Optionally, change the hover color */
@@ -13,7 +13,7 @@
     background-color: #CE4257;
     color: white;
     border-color: rgba(0, 0, 0, 0);
-/* You can also set other styles such as border color, text color, etc. */
+    /* You can also set other styles such as border color, text color, etc. */
 }
 
 /* Optionally, change the hover color */
@@ -21,17 +21,42 @@
     background-color: #720026;
 }
 
-.navbar-link{
-}
+.navbar-link {}
 
-.navbar-link:hover{
+.navbar-link:hover {
     color: #FF7F51;
 }
 
-.navbar-item:hover{
+.navbar-item:hover {
     color: #FF7F51;
 }
 
-.navbar-item:hover{
+.navbar-item:hover {
     color: #FF7F51;
+}
+
+/* styles.css or styles.scss */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    min-height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.router-outlet {
+    flex: 1;
+}
+
+.footer {
+    /* Set your footer background color here */
+    text-align: center;
+    width: 100%;
+    flex-shrink: 0;
 }
