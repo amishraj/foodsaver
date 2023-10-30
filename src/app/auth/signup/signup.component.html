@@ -1,0 +1,105 @@
+<section class="section is-small">
+    <div class="container is-fluid">
+        <h1 class="title columns is-centered is-full">
+            <strong>Signup</strong>
+        </h1>
+        <br>
+        <h2 class="subtitle columns is-centered">
+            Create an account to start reserving meals
+        </h2>
+        <br><br>
+    </div>
+</section>
+
+<div class="login-container">
+    <div class="login-box" *ngIf="!signedUp">
+        <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
+            <div class="field login-input">
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input name="email" ngModel class="input" type="text" placeholder="Enter your email"
+                        #emailInput="ngModel" required email
+                        [class.is-danger]="emailInput.invalid && emailInput.dirty && emailInput.value"
+                        [class.is-success]="emailInput.valid && emailInput.dirty && emailInput.value">
+
+                    <span class="icon is-small is-right"
+                        *ngIf="emailInput.valid && emailInput.dirty && emailInput.value">
+                        <i class="fas fa-check"></i>
+                    </span>
+
+                    <span class="icon is-small is-right"
+                        *ngIf="emailInput.invalid && emailInput.dirty && emailInput.value">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </span>
+
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+
+                </div>
+
+                <p *ngIf="emailInput.invalid && emailInput.dirty && emailInput.value" class="help is-danger">This email
+                    is invalid</p>
+                <p *ngIf="emailInput.valid && emailInput.dirty && emailInput.value" class="help is-success">This email
+                    is valid!</p>
+            </div>
+
+            <div class="field login-input">
+                <label class="label">Password</label>
+                <div class="control has-icons-left">
+                    <input name="password" ngModel class="input" type="password" placeholder="Enter your password"
+                        #passwordInput="ngModel" required
+                        [class.is-danger]="reEnterPasswordInput.valid && reEnterPasswordInput.dirty && reEnterPasswordInput.value && reEnterPasswordInput.value != passwordInput.value"
+                        [class.is-success]="reEnterPasswordInput.valid && reEnterPasswordInput.dirty && reEnterPasswordInput.value && reEnterPasswordInput.value === passwordInput.value">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </div>
+                <p *ngIf="reEnterPasswordInput.valid && reEnterPasswordInput.dirty && reEnterPasswordInput.value && reEnterPasswordInput.value != passwordInput.value"
+                    class="help is-danger">
+                    Passwords don't match!</p>
+                <p *ngIf="reEnterPasswordInput.valid && reEnterPasswordInput.dirty && reEnterPasswordInput.value && reEnterPasswordInput.value === passwordInput.value"
+                    class="help is-success">
+                    Passwords match!</p>
+            </div>
+
+            <div class="field login-input">
+                <label class="label">Re-enter Password</label>
+                <div class="control has-icons-left">
+                    <input name="reEnterPassword" ngModel class="input" type="password"
+                        placeholder="Please re-enter your password" required #reEnterPasswordInput="ngModel"
+                        [class.is-danger]="reEnterPasswordInput.valid && reEnterPasswordInput.dirty && reEnterPasswordInput.value && reEnterPasswordInput.value != passwordInput.value"
+                        [class.is-success]="reEnterPasswordInput.valid && reEnterPasswordInput.dirty && reEnterPasswordInput.value && reEnterPasswordInput.value === passwordInput.value">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </div>
+                <p *ngIf="reEnterPasswordInput.valid && reEnterPasswordInput.dirty && reEnterPasswordInput.value && reEnterPasswordInput.value != passwordInput.value"
+                    class="help is-danger">
+                    Passwords don't match!</p>
+                <p *ngIf="reEnterPasswordInput.valid && reEnterPasswordInput.dirty && reEnterPasswordInput.value && reEnterPasswordInput.value === passwordInput.value"
+                    class="help is-success">
+                    Passwords match!</p>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary login-button">Signup</button>
+                    <span *ngIf="isLoading" class="spinner"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="wrapper" *ngIf="signedUp">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg>
+
+        <strong>You are signed up! Please login using the top-right button to continue</strong>
+
+    </div>
+
+
+</div>
