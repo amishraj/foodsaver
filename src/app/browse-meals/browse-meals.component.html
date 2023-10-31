@@ -8,14 +8,10 @@
             Searching for meals in your area: {{zipcode}}
         </h2>
     </div>
-    
+
     <br> <br>
 
     <div class="container">
-      <app-meal></app-meal>
-      <app-meal></app-meal>    
-      <app-meal></app-meal>    
-      <app-meal></app-meal>    
-      <app-meal></app-meal>    
+        <app-meal *ngFor="let meal of meals" [title]="meal.title" [description]="meal.description" [rating]="meal.rating"></app-meal>
     </div>
 </section>
