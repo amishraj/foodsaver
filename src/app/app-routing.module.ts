@@ -7,6 +7,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { BrowseMealsComponent } from './browse-meals/browse-meals.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { AboutComponent } from './about/about.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,11 +18,13 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'browse-meals', component: BrowseMealsComponent},
   { path: 'restaurants', component:RestaurantsComponent},
-  { path: 'about', component:AboutComponent}
+  { path: 'about', component:AboutComponent},
+  { path: 'profile', component:ProfileComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

@@ -1,0 +1,37 @@
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-one-fifth">
+        <figure class="image is-128x128">
+          <img src="https://www.gravatar.com/avatar/?d=mp" alt="Profile Picture">
+        </figure>
+      </div>
+      <div class="column">
+        <h1 class="title">{{ user.fname }} {{ user.lname }}</h1>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Address:</strong> {{ user.address }}</p>
+        <p><strong>Contact Info:</strong> {{ user.phone }}</p>
+        <!-- Add more user info fields as needed -->
+      </div>
+    </div>
+
+    <div class="tabs is-boxed">
+      <ul>
+        <li [routerLink]="['/profile/history']" routerLinkActive="is-active">
+          <a>History</a>
+        </li>
+        <li [routerLink]="['/profile/ongoing']" routerLinkActive="is-active">
+          <a>Ongoing Reservations</a>
+        </li>
+        <li [routerLink]="['/profile/canceled']" routerLinkActive="is-active">
+          <a>Canceled Reservations</a>
+        </li>
+        <li [routerLink]="['/profile/favorites']" routerLinkActive="is-active">
+          <a>Favorites</a>
+        </li>
+      </ul>
+    </div>
+
+    <router-outlet></router-outlet> <!-- This is where the content of the selected tab will be displayed -->
+  </div>
+</section>
