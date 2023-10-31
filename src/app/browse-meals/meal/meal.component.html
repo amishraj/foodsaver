@@ -6,12 +6,12 @@
           <div class="meal-title">{{title}}</div>
           <div class="meal-description">{{description}}</div>
           <div class="reserve-button">
-            <button class="button is-secondary">Go to Restaurant</button> &nbsp;
+            <button class="button is-light">Go to Restaurant</button> &nbsp;
             <button class="button is-primary">Reserve</button>
           </div>
         </div>
-        <div class="meal-rating">
-          4.5
+        <div class="meal-rating" [ngClass]="getRatingColor()">
+          {{rating}}
         </div>
       </div>
     </div>

@@ -33,7 +33,7 @@
   
   .meal-rating {
     flex: 0 0 50px;
-    background-color: #FF9B54;
+    background-color: #ffab70;
     color: #fff;
     text-align: center;
     font-size: 1.5rem;
@@ -41,3 +41,21 @@
     align-items: center;
     justify-content: center;
   }
+
+  .green-background {
+    background-color: #67c287; /* Green background for rating 5 */
+    color: #fff;
+  }
+  
+  .orange-background {
+    background-color: #C7C748; /* Orange background for ratings 2, 3, 4 */
+    color: #fff;
+  }
+  
+  .red-background {
+    background-color: #C74848; /* Red background for ratings 0, 1 */
+    color: #fff;
+  }
+  
+
+  
