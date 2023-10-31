@@ -11,6 +11,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   userIsAuthenticated = false;
   private authListenerSubs!: Subscription;
 
+  isNavbarActive = false;
+
+  toggleNavbar() {
+    this.isNavbarActive = !this.isNavbarActive;
+  }
+
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
