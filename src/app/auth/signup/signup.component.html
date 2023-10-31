@@ -12,7 +12,7 @@
 </section>
 
 <div class="login-container">
-    <div class="login-box" *ngIf="!signedUp">
+    <div class="login-box" *ngIf="!signedUp && pg1 && !error">
         <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
             <div class="field login-input">
                 <label class="label">Email</label>
@@ -84,14 +84,62 @@
 
             <div class="field">
                 <div class="control">
-                    <button class="button is-primary login-button">Signup</button>
+                    <button class="button is-primary login-button">Next</button>
                     <span *ngIf="isLoading" class="spinner"></span>
                 </div>
             </div>
         </form>
     </div>
 
-    <div class="wrapper" *ngIf="signedUp">
+    <div class="login-box" *ngIf="!signedUp && !pg1 && !error">
+        <form (submit)="onPgTwo(formpg2)" #formpg2="ngForm">
+            <!-- First Name field -->
+            <div class="field login-input">
+                <label class="label">First Name</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input name="firstName" ngModel class="input" type="text" placeholder="Enter your first name"
+                        #firstName required firstName>
+                </div>
+            </div>
+
+            <!-- Last Name field -->
+            <div class="field login-input">
+                <label class="label">Last Name</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input name="lastName" ngModel class="input" type="text" placeholder="Enter your last name"
+                        #lastName required lastName>
+                </div>
+            </div>
+
+            <!-- Address field -->
+            <div class="field login-input">
+                <label class="label">Address</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input name="address" ngModel class="input" type="text" placeholder="Enter your address" #address
+                        required address>
+                </div>
+            </div>
+
+            <!-- Cell Number field -->
+            <div class="field login-input">
+                <label class="label">Cell Number</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input name="cellNumber" ngModel class="input" type="text" placeholder="Enter your cell number"
+                        #cellNumber required cellNumber>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary login-button">Complete registration</button>
+                    <span *ngIf="isLoading" class="spinner"></span>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="wrapper" *ngIf="signedUp && !error">
         <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
             <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
             <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
@@ -101,5 +149,13 @@
 
     </div>
 
+    <div class="wrapper" *ngIf="error">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark_circle" cx="26" cy="26" r="25" fill="none" />
+            <path class="checkmark_check" fill="none" d="M14.1 14.1l23.8 23.8 m0,-23.8 l-23.8,23.8" />
+        </svg>
+
+        <strong>Error during registration! Please <a (click)="reloadPage()">Try Again</a></strong>
+    </div>
 
 </div>
