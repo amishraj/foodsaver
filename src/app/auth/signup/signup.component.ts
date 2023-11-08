@@ -21,7 +21,8 @@ export class SignupComponent implements OnInit {
     lname: '',
     email: '',
     address: '',
-    phone: ''
+    phone: '',
+    status:''
   };
   pg1 = true;
   pwd = '';
@@ -53,6 +54,7 @@ export class SignupComponent implements OnInit {
       this.user.lname = form.value.lastName;
       this.user.address = form.value.address;
       this.user.phone = form.value.cellNumber;
+      this.user.status = 'unverified';
 
       this.authService.createUser(this.user, this.pwd).subscribe(
         (response: any) => {

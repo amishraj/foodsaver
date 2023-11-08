@@ -12,6 +12,8 @@
     <br> <br>
 
     <div class="container">
-        <app-meal *ngFor="let meal of meals" [title]="meal.title" [description]="meal.description" [rating]="meal.rating"></app-meal>
+        <app-meal *ngFor="let meal of meals" [title]="meal.title" [description]="meal.description"
+            [rating]="meal.rating" [isVegan]="meal.vegan" [isVeg]="meal.vegetarian"
+            [isGlutenFree]="meal.glutenFree"></app-meal>
     </div>
 </section>

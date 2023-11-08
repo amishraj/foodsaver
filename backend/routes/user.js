@@ -16,7 +16,8 @@ router.post("/signup", (req, res, next) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       address: req.body.address,
-      phone: req.body.phone
+      phone: req.body.phone,
+      status: req.body.status
     });
     user
       .save()
@@ -99,6 +100,7 @@ router.get("/me", (req, res) => {
           email: user.email,
           address: user.address,
           phone: user.phone,
+          status: user.status
         });
       })
       .catch(function (err) {
