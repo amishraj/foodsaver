@@ -1,12 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
 .button.is-primary {
     background-color: #FF9B54;
-    /* You can also set other styles such as border color, text color, etc. */
-}
+    box-shadow: none;
+    &:hover{
+        background-color: #FF7F51;
+    }
+    &:focus {
+        outline-color: #FF9B54; /* Change the color of the focus outline */
+    }
+    &:disabled,
+    &[disabled] {
+        background-color: #FF9B54;
+        color: white;
+        cursor: not-allowed;
+        border-color: #FF9B54;
 
-/* Optionally, change the hover color */
-.button.is-primary:hover {
-    background-color: #FF7F51;
+        &:focus {
+            outline-color: #FF9B54; /* Change the color of the focus outline */
+        }
+    }
 }
 
 .button.is-secondary {
@@ -14,11 +27,20 @@
     color: white;
     border-color: rgba(0, 0, 0, 0);
     /* You can also set other styles such as border color, text color, etc. */
-}
 
-/* Optionally, change the hover color */
-.button.is-secondary:hover {
-    background-color: #720026;
+    &:hover{
+        background-color: #720026;
+    }
+    &:disabled,
+    &[disabled] {
+        background-color: #CE4257;
+        cursor: not-allowed;
+        border-color: #CE4257;
+
+        &:focus {
+            outline-color: #CE4257; /* Change the color of the focus outline */
+        }
+    }
 }
 
 .navbar-link {}
@@ -31,11 +53,7 @@
     color: #FF7F51;
 }
 
-.navbar-item:hover {
-    color: #FF7F51;
-}
-
-/* styles.css or styles.scss */
+/* other global styles */
 
 html,
 body {

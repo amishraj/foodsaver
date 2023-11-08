@@ -9,6 +9,7 @@ import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { AboutComponent } from './about/about.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth/auth.guard';
+import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'browse-meals', component: BrowseMealsComponent},
   { path: 'restaurants', component:RestaurantsComponent},
+  { path: 'restaurant/:id', component:RestaurantComponent},
   { path: 'about', component:AboutComponent},
   { path: 'profile', component:ProfileComponent, canActivate: [AuthGuard]}
 ];

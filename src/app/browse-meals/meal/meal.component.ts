@@ -1,21 +1,23 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-meal',
   templateUrl: './meal.component.html',
   styleUrls: ['./meal.component.scss']
 })
-export class MealComponent {
+export class MealComponent implements OnInit{
 
   @Input() title?:string;
   @Input() description?:string;
   @Input() rating?:number;
+  @Input() isVegan?:boolean;
+  @Input() isVeg?:boolean;
+  @Input() isGlutenFree?:boolean;
 
   public constructor(){}
 
-  ngOnInit(){
-
-  } 
+  ngOnInit(): void {
+  }
 
   public getRatingColor(): string {
     if (this.rating! >= 4.5 && this.rating!<= 5) {

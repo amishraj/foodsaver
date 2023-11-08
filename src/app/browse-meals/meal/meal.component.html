@@ -10,6 +10,10 @@
             <button class="button is-primary">Reserve</button>
           </div>
         </div>
+        <span class="tag is-light rating-label" *ngIf="isVegan">Vegan</span>
+        <span class="tag is-light rating-label" *ngIf="isVeg">Vegetarian</span>
+        <span class="tag is-light rating-label" *ngIf="isGlutenFree">Gluten-free</span>
+
         <div class="meal-rating" [ngClass]="getRatingColor()">
           {{rating}}
         </div>

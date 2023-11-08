@@ -1,0 +1,21 @@
+.rating-label {
+    margin-top: 5px;
+    margin-left: 10px; /* Adjust margin as needed */
+    font-size: 0.8rem; /* Customize the font size */
+    padding: 0.2rem 0.5rem; /* Adjust padding as needed */
+}
+
+.green-background {
+    background-color: #67c287; /* Green background for rating 5 */
+    color: #fff;
+  }
+  
+  .orange-background {
+    background-color: #C7C748; /* Orange background for ratings 2, 3, 4 */
+    color: #fff;
+  }
+  
+  .red-background {
+    background-color: #C74848; /* Red background for ratings 0, 1 */
+    color: #fff;
+  }

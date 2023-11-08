@@ -16,7 +16,8 @@ export class ProfileComponent implements OnInit{
     lname:'',
     email:'',
     address:'',
-    phone:''
+    phone:'',
+    status:''
   }
 
   ngOnInit() {
@@ -25,7 +26,8 @@ export class ProfileComponent implements OnInit{
       lname:'',
       email:'',
       address:'',
-      phone:''
+      phone:'',
+      status:''
     }
 
     this.authService.getCurrentUser().subscribe(
