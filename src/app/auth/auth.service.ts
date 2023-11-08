@@ -38,7 +38,8 @@ export class AuthService {
             firstName: user.fname,
             lastName: user.lname,
             address: user.address,
-            phone: user.phone
+            phone: user.phone,
+            status: user.status
         };
 
         return this.http.post("http://localhost:3000/api/user/signup", authData)
@@ -106,7 +107,8 @@ export class AuthService {
             lname: '',
             email: '',
             address: '',
-            phone: ''
+            phone: '',
+            status: ''
         };
         this.router.navigate(['/']);
     }
