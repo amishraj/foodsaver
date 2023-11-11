@@ -15,7 +15,7 @@
                     {{restaurant.address}}
                 </h2>
                 <h3 class="subtitle is-5 columns is-centered">
-                    {{restaurant.contact}}
+                    {{restaurant.phone}}
                 </h3>
             </div>
         </div>
@@ -60,9 +60,9 @@
             </div>
 
             <div class="column">
-                <app-meal *ngFor="let meal of meals" [title]="meal.title" [description]="meal.description"
+                <app-meal *ngFor="let meal of restaurant.meals" [title]="meal.title" [description]="meal.description"
                     [rating]="meal.rating" [isVegan]="meal.vegan" [isVeg]="meal.vegetarian"
-                    [isGlutenFree]="meal.glutenFree"></app-meal>
+                    [isGlutenFree]="meal.glutenFree" [fromRestaurant]=true></app-meal>
             </div>
         </div>
     </div>
