@@ -1,22 +1,26 @@
 <div class="columns">
-    <div class="column">
-      <div class="meal-card">
-        <img class="meal-image" src="https://via.placeholder.com/200" alt="Meal Image">
-        <div class="meal-details">
-          <div class="meal-title">{{title}}</div>
-          <div class="meal-description">{{description}}</div>
-          <div class="reserve-button">
-            <button class="button is-light">Go to Restaurant</button> &nbsp;
-            <button class="button is-primary">Reserve</button>
-          </div>
-        </div>
-        <span class="tag is-light rating-label" *ngIf="isVegan">Vegan</span>
-        <span class="tag is-light rating-label" *ngIf="isVeg">Vegetarian</span>
-        <span class="tag is-light rating-label" *ngIf="isGlutenFree">Gluten-free</span>
+  <div class="column">
+    <div class="meal-card">
+      <img class="meal-image" src="https://via.placeholder.com/200" alt="Meal Image">
+      <div class="meal-details">
+        <div class="meal-title">{{title}}</div>
+        <div class="meal-description">{{description}}</div>
+        <div class="reserve-button">
+          <span *ngIf="!fromRestaurant">
+            <button class="button is-light">Go to Restaurant </button>
+            &nbsp;
+          </span>
 
-        <div class="meal-rating" [ngClass]="getRatingColor()">
-          {{rating}}
+          <button class="button is-primary">Reserve</button>
         </div>
+      </div>
+      <span class="tag is-light rating-label" *ngIf="isVegan">Vegan</span>
+      <span class="tag is-light rating-label" *ngIf="isVeg">Vegetarian</span>
+      <span class="tag is-light rating-label" *ngIf="isGlutenFree">Gluten-free</span>
+
+      <div class="meal-rating" [ngClass]="getRatingColor()">
+        {{rating}}
       </div>
     </div>
   </div>
+</div>

@@ -13,6 +13,7 @@ export class MealComponent implements OnInit{
   @Input() isVegan?:boolean;
   @Input() isVeg?:boolean;
   @Input() isGlutenFree?:boolean;
+  @Input() fromRestaurant?:boolean=false;
 
   public constructor(){}
 

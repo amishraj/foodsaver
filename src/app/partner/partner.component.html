@@ -1,4 +1,4 @@
-<section class="section is-small">
+<section class="section is-small" *ngIf="!registered">
     <div class="container is-fluid">
         <h1 class="title columns is-centered is-full">
             <strong>Become a Partner</strong>
@@ -10,4 +10,72 @@
     </div>
 </section>
 
+<div class="login-container">
+    <div class="login-box" *ngIf="!registered">
+        <div class="partner-registration-form">
+            <form (submit)="onSubmit(partnerForm)" #partnerForm="ngForm">
+                <div class="field">
+                    <label class="label">Restaurant Name</label>
+                    <div class="control">
+                        <input name="restaurantName" ngModel class="input" type="text"
+                            placeholder="Enter restaurant name" required>
+                    </div>
+                </div>
 
+                <div class="field">
+                    <label class="label">Address</label>
+                    <div class="control">
+                        <input name="address" ngModel class="input" type="text" placeholder="Enter address" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Phone</label>
+                    <div class="control">
+                        <input name="phone" ngModel class="input" type="tel" placeholder="Enter phone number" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input name="email" ngModel class="input" type="email" placeholder="Enter email" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    
+                    <label class="label">Verification Document
+                        <div class="tooltip">
+                            <i class="fas fa-info-circle"></i>
+                            <span class="tooltiptext">
+                                Usually the most recent Certificate of Food Safety
+                            </span>
+                        </div>
+                    </label>
+                    
+                    
+                    <div class="control">
+                        <input #foodSafetyCertificateInput name="foodSafetyCertificate" ngModel class="input" type="file" accept=".pdf, .jpg, .png"
+                            required>
+                    </div>
+                </div>
+                <br>
+                <div class="field">
+                    <div class="control columns is-centered">
+                        <button class="button is-primary" type="submit" [disabled]="partnerForm.invalid">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="wrapper" *ngIf="registered">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg>
+
+        <strong>You are now a partner! Please create an account with the same email to start putting up meals!</strong>
+
+    </div>
+</div>

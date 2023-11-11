@@ -84,7 +84,7 @@
 
             <div class="field">
                 <div class="control">
-                    <button class="button is-primary login-button">Next</button>
+                    <button class="button is-primary login-button" [disabled]="signupForm.invalid">Next</button>
                     <span *ngIf="isLoading" class="spinner"></span>
                 </div>
             </div>
@@ -131,7 +131,7 @@
 
             <div class="field">
                 <div class="control">
-                    <button class="button is-primary login-button">Complete registration</button>
+                    <button class="button is-primary login-button" [disabled]="formpg2.invalid">Complete registration</button>
                     <span *ngIf="isLoading" class="spinner"></span>
                 </div>
             </div>

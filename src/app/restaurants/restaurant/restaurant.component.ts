@@ -10,24 +10,28 @@ import { Restaurant } from 'src/app/interfaces/restaurant';
 })
 export class RestaurantComponent implements OnInit{
 
-  restaurant: any;
+  restaurant!: any;
   showVegetarian:boolean=false;
   showVegan:boolean=false;
   showGlutenFree:boolean=false;
   meals=MEALS
 
-  constructor(private route: ActivatedRoute, private renderer: Renderer2) {
+  constructor(private route: ActivatedRoute, private renderer: Renderer2, private router: Router) {
     this.route.params.subscribe(params => {
       if (params['id']) {
         this.restaurant = history.state.restaurant;
       }
     });
 
-    this.meals.sort((a, b) => b.rating - a.rating);
+    this.restaurant.meals.sort((a: { rating: number; }, b: { rating: number; }) => b.rating - a.rating);
   }
 
   ngOnInit(): void {
     this.scrollToTop();
+
+    if(!this.restaurant){
+      this.router.navigate(['/']);
+    }
   }
 
   toggleFilter(filter: string) {
@@ -43,11 +47,11 @@ export class RestaurantComponent implements OnInit{
   }
 
   public getRatingColor(): string {
-    if (this.restaurant.rating! >= 4.5 && this.restaurant.rating!<= 5) {
+    if (Number(this.restaurant.rating!) >= 4.5 && Number(this.restaurant.rating!)<= 5) {
       return 'green-background'; // Green for rating 5
-    } else if (this.restaurant.rating! >= 2 && this.restaurant.rating! <= 3) {
+    } else if (Number(this.restaurant.rating!) >= 2 && Number(this.restaurant.rating!) <= 3) {
       return 'orange-background'; // Orange/Yellow for ratings 2 to 4
-    } else if (this.restaurant.rating! >= 0 && this.restaurant.rating! <= 2) {
+    } else if (Number(this.restaurant.rating!) >= 0 && Number(this.restaurant.rating!) <= 2) {
       return 'red-background'; // Red for ratings 0 and 1
     } else {
       return '#FFFFFF'; // Default color
