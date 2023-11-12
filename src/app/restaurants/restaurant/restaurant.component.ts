@@ -65,6 +65,13 @@ export class RestaurantComponent implements OnInit{
   }
 
   applyFilters(){
-    
+    const filteredMeals = this.meals.filter(meal => {
+      return (!this.showVegetarian || meal.vegetarian) &&
+             (!this.showVegan || meal.vegan) &&
+             (!this.showGlutenFree || meal.glutenFree);
+  })
+  filteredMeals.sort((a: { rating: number; }, b: { rating: number; }) => b.rating - a.rating);
+
+  this.restaurant.meals = filteredMeals;
   }
 }
