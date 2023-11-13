@@ -12,12 +12,12 @@
 
 <div class="container">
     <div class="columns is-multiline">
-        <div class="column is-one-third zoom" *ngFor="let restaurant of restaurants" (click)="onCardClick(restaurant)">
+        <div class="column is-one-third zoom" *ngFor="let restaurant of restaurants; let i = index" (click)="onCardClick(restaurant)">
             <div class="card">
                 <!-- Card Image -->
                 <div class="card-image">
                     <figure class="image is-4by3">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                        <img [src]="restaurant.image" alt="Placeholder image">
                     </figure>
                 </div>
                 <!-- Card Content -->
