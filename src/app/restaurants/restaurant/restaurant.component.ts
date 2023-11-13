@@ -67,6 +67,9 @@ export class RestaurantComponent implements OnInit {
 
   applyFilters() {
     let meals:Meal[]= this.restaurant.meals;
+    if(!this.showGlutenFree && !this.showVegan && !this.showVegetarian){
+      window.location.reload();
+    }
     const filteredMeals = meals.filter(meal => {
       return (!this.showVegetarian || meal.vegetarian) &&
         (!this.showVegan || meal.vegan) &&
