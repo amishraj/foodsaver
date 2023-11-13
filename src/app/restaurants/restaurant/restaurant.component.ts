@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MEALS } from 'src/app/interfaces/dummy/meals';
+import { Meal } from 'src/app/interfaces/meal';
 import { Restaurant } from 'src/app/interfaces/restaurant';
 
 @Component({
@@ -8,13 +9,13 @@ import { Restaurant } from 'src/app/interfaces/restaurant';
   templateUrl: './restaurant.component.html',
   styleUrls: ['./restaurant.component.scss']
 })
-export class RestaurantComponent implements OnInit{
+export class RestaurantComponent implements OnInit {
 
   restaurant!: any;
-  showVegetarian:boolean=false;
-  showVegan:boolean=false;
-  showGlutenFree:boolean=false;
-  meals=MEALS
+  showVegetarian: boolean = false;
+  showVegan: boolean = false;
+  showGlutenFree: boolean = false;
+  meals = MEALS
 
   constructor(private route: ActivatedRoute, private renderer: Renderer2, private router: Router) {
     this.route.params.subscribe(params => {
@@ -29,7 +30,7 @@ export class RestaurantComponent implements OnInit{
   ngOnInit(): void {
     this.scrollToTop();
 
-    if(!this.restaurant){
+    if (!this.restaurant) {
       this.router.navigate(['/']);
     }
   }
@@ -47,7 +48,7 @@ export class RestaurantComponent implements OnInit{
   }
 
   public getRatingColor(): string {
-    if (Number(this.restaurant.rating!) >= 4.5 && Number(this.restaurant.rating!)<= 5) {
+    if (Number(this.restaurant.rating!) >= 4.5 && Number(this.restaurant.rating!) <= 5) {
       return 'green-background'; // Green for rating 5
     } else if (Number(this.restaurant.rating!) >= 2 && Number(this.restaurant.rating!) <= 3) {
       return 'orange-background'; // Orange/Yellow for ratings 2 to 4
@@ -64,7 +65,15 @@ export class RestaurantComponent implements OnInit{
     this.renderer.setProperty(document.documentElement, 'scrollTop', 0);
   }
 
-  applyFilters(){
-    
+  applyFilters() {
+    let meals:Meal[]= this.restaurant.meals;
+    const filteredMeals = meals.filter(meal => {
+      return (!this.showVegetarian || meal.vegetarian) &&
+        (!this.showVegan || meal.vegan) &&
+        (!this.showGlutenFree || meal.glutenFree);
+    })
+    filteredMeals.sort((a: { rating: number; }, b: { rating: number; }) => b.rating - a.rating);
+
+    this.restaurant.meals = filteredMeals;
   }
 }
