@@ -2,7 +2,7 @@
   <div class="container">
     <div class="columns">
       <div class="column is-one-fifth">
-        <figure class="image is-128x128">
+        <figure class="image is-256x256" style="display: flex; align-items: center;">
           <img src="https://www.gravatar.com/avatar/?d=mp" alt="Profile Picture">
         </figure>
       </div>
@@ -11,27 +11,110 @@
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Address:</strong> {{ user.address }}</p>
         <p><strong>Contact Info:</strong> {{ user.phone }}</p>
+        <br>
         <!-- Add more user info fields as needed -->
+  
+        <!-- Verification status and action -->
+        <div class="is-flex is-align-items-center">
+          <span class="tag is-warning is-light unverified-label">Unverified</span>
+          <button class="button is-primary is-small" (click)="openModalGetVerified()">
+            <span class="icon">
+              <i class="fas fa-check"></i>
+            </span>
+            <span>Get Verified</span>
+          </button>
+        </div>
       </div>
     </div>
 
     <div class="tabs is-boxed">
       <ul>
-        <li [routerLink]="['/profile/history']" routerLinkActive="is-active">
-          <a>History</a>
+        <li [class.is-active]="activeTab === 'History'" (click)="setActiveTab('History')">
+          <a [ngStyle]="{'color': activeTab === 'History' ? '#720026' : ''}">History</a>
         </li>
-        <li [routerLink]="['/profile/ongoing']" routerLinkActive="is-active">
-          <a>Ongoing Reservations</a>
+        <li [class.is-active]="activeTab === 'Ongoing'" (click)="setActiveTab('Ongoing')">
+          <a [ngStyle]="{'color': activeTab === 'Ongoing' ? '#720026' : ''}">Ongoing Reservations</a>
         </li>
-        <li [routerLink]="['/profile/canceled']" routerLinkActive="is-active">
-          <a>Canceled Reservations</a>
+        <li [class.is-active]="activeTab === 'Canceled'" (click)="setActiveTab('Canceled')">
+          <a [ngStyle]="{'color': activeTab === 'Canceled' ? '#720026' : ''}">Canceled Reservations</a>
         </li>
-        <li [routerLink]="['/profile/favorites']" routerLinkActive="is-active">
-          <a>Favorites</a>
+        <li [class.is-active]="activeTab === 'MyRestaurants'" (click)="setActiveTab('MyRestaurants')">
+          <a [ngStyle]="{'color': activeTab === 'MyRestaurants' ? '#720026' : ''}">My Restaurants</a>
+        </li>
+      </ul>
+    </div>    
+
+    <div *ngIf="activeTab === 'MyRestaurants'">
+      <ul class="columns is-multiline">
+        <li class="column is-one-third" *ngFor="let restaurant of myRestaurants">
+          <div class="card">
+            <div class="card-content">
+              <!-- Flex container for aligning rating to the top right -->
+              <div class="is-flex is-justify-content-space-between">
+                <p class="title is-4">{{ restaurant.title }}</p>
+                <!-- Rating in the top right corner -->
+                <span class="tag is-primary is-light rating-label">
+                  {{ restaurant.rating }}
+                  &nbsp;
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <p class="subtitle is-6">{{ restaurant.address }}</p>
+              <p class="subtitle is-6">{{ restaurant.phone }}</p>
+              <p class="subtitle is-6">{{ restaurant.email }}</p>
+              <!-- Buttons to show and update meals -->
+              <button class="button is-light" (click)="showMeals(restaurant)">
+                Show Meals
+              </button>
+              &nbsp;
+              <button class="button is-primary" (click)="openModalMeal(restaurant)">
+                Add Meals
+              </button>
+            </div>
+          </div>
+          <br>
         </li>
       </ul>
     </div>
-
-    <router-outlet></router-outlet> <!-- This is where the content of the selected tab will be displayed -->
+    
   </div>
 </section>
+
+<!-- Modal Get Verified structure -->
+<div class="modal" [ngClass]="{ 'is-active': modalVerifyIsActive }">
+  <div class="modal-background" (click)="closeModalGetVerified()"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Get Verified</p>
+      <button class="delete" aria-label="close" (click)="closeModalGetVerified()"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+      <p>Please upload any proof of income</p>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-primary" (click)="saveChanges()">Save changes</button>
+      <button class="button" (click)="closeModalGetVerified()">Cancel</button>
+    </footer>
+  </div>
+</div>
+
+<!-- Modal Add meals structure -->
+<div class="modal" [ngClass]="{ 'is-active': modalMealIsActive }">
+  <div class="modal-background" (click)="closeModalMeal()"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Add a meal</p>
+      <button class="delete" aria-label="close" (click)="closeModalMeal()"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+      <p>Let's help the needy! Fill out the details below to add a meal</p>
+      <app-addmeal [restaurantTitle]="selected"></app-addmeal>
+    </section>
+    <footer class="modal-card-foot">
+      <!-- <button class="button is-primary" (click)="saveMealChanges()">Save changes</button> -->
+      <button class="button" (click)="closeModalMeal()">Cancel</button>
+    </footer>
+  </div>
+</div>

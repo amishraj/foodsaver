@@ -1,0 +1,86 @@
+<form #mealForm="ngForm" (ngSubmit)="onSubmit(mealForm)">
+    <div class="field">
+      <label class="label">Title</label>
+      <div class="control">
+        <input class="input" type="text" name="title" ngModel required>
+      </div>
+    </div>
+  
+    <div class="field">
+      <label class="label">Description</label>
+      <div class="control">
+        <textarea class="textarea" name="description" ngModel required></textarea>
+      </div>
+    </div>
+  
+    <div class="field">
+      <label class="label">Restaurant Zip Code</label>
+      <div class="control">
+        <input class="input" type="text" name="zipcode" ngModel required>
+      </div>
+    </div>
+  
+    <div class="field">
+      <label class="label">Calories</label>
+      <div class="control">
+        <input class="input" type="number" name="calories" ngModel required>
+      </div>
+    </div>
+  
+    
+  <div class="field">
+    <label class="label">Gluten Free?</label>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="glutenFree" ngModel [value]="true">
+        Yes
+      </label>
+      <label class="radio">
+        <input type="radio" name="glutenFree" ngModel [value]="false">
+        No
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Vegan?</label>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="vegan" ngModel [value]="true">
+        Yes
+      </label>
+      <label class="radio">
+        <input type="radio" name="vegan" ngModel [value]="false">
+        No
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Vegetarian?</label>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="vegetarian" ngModel [value]="true">
+        Yes
+      </label>
+      <label class="radio">
+        <input type="radio" name="vegetarian" ngModel [value]="false">
+        No
+      </label>
+    </div>
+  </div>
+  
+    <div class="field">
+      <label class="label">Meal Photo</label>
+      <div class="control">
+        <input type="file" name="mealPhoto" ngModel accept=".jpg, .jpeg, .png">
+      </div>
+    </div>
+  
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" type="submit" [disabled]="mealForm.invalid">Add Meal</button>
+      </div>
+    </div>
+  </form>
+  

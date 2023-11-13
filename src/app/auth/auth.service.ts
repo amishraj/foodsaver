@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AuthData } from "./auth-data.model";
-import { Observable, Subject, catchError, of, throwError } from "rxjs";
+import { Observable, Subject, catchError, of, tap, throwError } from "rxjs";
 import { Router } from "@angular/router";
 import { User } from "../interfaces/user";
 import { CreateAuthData } from "./create-auth-data.model";
@@ -53,25 +53,31 @@ export class AuthService {
 
     login(email: string, password: string) {
         const authData: AuthData = { email: email, password: password };
-        this.http.post<{ token: string, expiresIn: number, currUser: User }>("http://localhost:3000/api/user/login", authData)
-            .subscribe(response => {
-                const token = response.token;
-                this.token = token;
-                if (token) {
-                    const expiresInDuration = response.expiresIn;
-                    this.setAuthtimer(expiresInDuration);
-                    this.isAuthenticated = true;
-                    this.authStatusListener.next(true);
-                    const now = new Date();
-                    const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
-                    this.saveAuthData(token, expirationDate);
-
-                    this.currentUser = response.currUser;
-                    this.router.navigate(['/']);
-                }
+        return this.http.post<{ token: string, expiresIn: number, currUser: User }>('http://localhost:3000/api/user/login', authData)
+          .pipe(
+            tap(response => {
+              const token = response.token;
+              this.token = token;
+              if (token) {
+                const expiresInDuration = response.expiresIn;
+                this.setAuthtimer(expiresInDuration);
+                this.isAuthenticated = true;
+                this.authStatusListener.next(true);
+                const now = new Date();
+                const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
+                this.saveAuthData(token, expirationDate);
+    
+                this.currentUser = response.currUser;
+                this.router.navigate(['/']);
+              }
+            }),
+            catchError(error => {
+              this.authStatusListener.next(false);
+              console.error(error);
+              return throwError(error); // Sending the error back to the component
             })
-    }
-
+          );
+      }
     getCurrentUser(): Observable<User> {
         const headers = new HttpHeaders({
             'Authorization': `Bearer ${this.token}`

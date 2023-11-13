@@ -11,12 +11,21 @@ import { RestaurantService } from '../restaurants/restaurant.service';
 export class PartnerComponent implements OnInit{
   constructor(private restaurantService: RestaurantService){}
 
+  email?:String;
+
+  error=false;
+
   @ViewChild('foodSafetyCertificateInput') foodSafetyCertificateInput!: ElementRef;
 
   registered:boolean=false;
 
   ngOnInit(): void {
     this.registered=false;
+    this.email=undefined;
+  }
+
+  ngOnDestroy(){
+    this.email=undefined;
   }
 
   onSubmit(form: NgForm) {
@@ -24,6 +33,7 @@ export class PartnerComponent implements OnInit{
       return;
     } else {
       const formData = new FormData();
+      this.email= form.value.email;
       // Add your restaurant data to the FormData object
       formData.append('title', form.value.restaurantName);
       formData.append('address', form.value.address);
@@ -41,10 +51,20 @@ export class PartnerComponent implements OnInit{
       formData.append('pdfFile', pdfFile, pdfFile.name);
 
       // Call the service function
-      this.restaurantService.postRestaurant(formData)
-        .subscribe(response => {
+      this.restaurantService.postRestaurant(formData).subscribe(
+          response => {
           this.registered=true;
+        },
+        error => {
+          // Handle error, e.g., show an error message to the user
+          console.error('Error occurred during restaurant creation: ', error);
+          this.error=true;
+          alert("Restaurant creation failed")
         });
     }
+  }
+
+  refresh(){
+    window.location.reload();
   }
 }
