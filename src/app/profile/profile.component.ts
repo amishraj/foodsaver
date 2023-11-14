@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit{
   modalMealIsActive = false;
   myRestaurants?:Restaurant[];
   selected!:string;
+  isVerified:Boolean=false;
 
   setActiveTab(tab: string): void {
     this.activeTab = tab;
@@ -45,6 +46,7 @@ export class ProfileComponent implements OnInit{
     this.authService.getCurrentUser().subscribe(
       (user: User) => {
         this.user = user;
+        this.isVerified = user.status === "verified"? true:false;
         this.restaurantService.getMyRestaurants(user.email).subscribe(
           (data)=>{
             this.myRestaurants= data.restaurants;
@@ -74,6 +76,18 @@ export class ProfileComponent implements OnInit{
   saveChanges() {
     // Add your logic to handle saving changes
     this.closeModalGetVerified(); // Optionally close the modal after saving changes
+
+    //verify the account
+    this.authService.verifyUser().subscribe(
+      (data)=>{
+        alert(data.message)
+        window.location.reload();
+      },
+      (error)=>{
+        alert("Couldn't verify your account. Please try again later.")
+        console.error(error)
+      }
+    );
   }
 
   //Meal Modal Methods
