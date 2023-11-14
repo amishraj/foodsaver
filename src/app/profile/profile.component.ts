@@ -18,7 +18,8 @@ export class ProfileComponent implements OnInit{
   modalMealIsActive = false;
   myRestaurants?:Restaurant[];
   selected!:string;
-  isVerified:Boolean=false;
+  isVerified!:Boolean;
+  displayVerifyTag:Boolean=false;
 
   setActiveTab(tab: string): void {
     this.activeTab = tab;
@@ -47,6 +48,8 @@ export class ProfileComponent implements OnInit{
       (user: User) => {
         this.user = user;
         this.isVerified = user.status === "verified"? true:false;
+        this.displayVerifyTag=true;
+        
         this.restaurantService.getMyRestaurants(user.email).subscribe(
           (data)=>{
             this.myRestaurants= data.restaurants;
