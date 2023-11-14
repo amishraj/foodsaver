@@ -15,7 +15,7 @@
         <!-- Add more user info fields as needed -->
   
         <!-- Verification status and action -->
-        <div class="is-flex is-align-items-center">
+        <div class="is-flex is-align-items-center" *ngIf="!isVerified && displayVerifyTag">
           <span class="tag is-warning is-light unverified-label">Unverified</span>
           <button class="button is-primary is-small" (click)="openModalGetVerified()">
             <span class="icon">
@@ -23,6 +23,10 @@
             </span>
             <span>Get Verified</span>
           </button>
+        </div>
+
+        <div class="is-flex is-align-items-center" *ngIf="isVerified && displayVerifyTag">
+          <span class="tag is-success is-light unverified-label" style="font-size: 15px;">Verified</span>
         </div>
       </div>
     </div>
@@ -91,9 +95,14 @@
     <section class="modal-card-body">
       <!-- Content ... -->
       <p>Please upload any proof of income</p>
+
+      <div class="control">
+        <input #proofOfIncome name="proofOfIncome" ngModel class="input" type="file" accept=".pdf, .jpg, .png"
+            required>
+      </div>
     </section>
     <footer class="modal-card-foot">
-      <button class="button is-primary" (click)="saveChanges()">Save changes</button>
+      <button class="button is-primary" (click)="saveChanges()" [disabled]="!proofOfIncome.files?.length">Save changes</button>
       <button class="button" (click)="closeModalGetVerified()">Cancel</button>
     </footer>
   </div>

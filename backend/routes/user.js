@@ -111,4 +111,40 @@ router.get("/me", (req, res) => {
   }
 });
 
+router.post("/verify", async (req, res) => {
+  let decoded;
+  try {
+    if (req.headers && req.headers.authorization) {
+      const authorization = req.headers.authorization.split(" ")[1];
+      try {
+        decoded = jwt.verify(authorization, "secret_this_should_be_longer"); // Use your secret here
+      } catch (e) {
+        return res.status(401).send("Unauthorized");
+      }
+    } else {
+      return res.status(500);
+    }
+    const userId = decoded.userId; // Use userId
+
+    // Fetch the user by id
+    User.findOne({ _id: userId })
+      .then(async function (user) {
+        if (!user) {
+          return res.status(404).send("User not found");
+        }
+
+        // Update the user's status to "verified"
+      user.status = "verified";
+      await user.save();
+        return res.status(200).json({ message: "User verified successfully" });
+      })
+      .catch(function (err) {
+        return res.status(500).send(err);
+      });
+  } catch (error) {
+    console.error("Error verifying user:", error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = router;
