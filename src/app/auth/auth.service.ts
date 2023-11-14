@@ -147,4 +147,11 @@ export class AuthService {
             expirationDate: new Date(expirationDate)
         }
     }
+
+    verifyUser(){
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${this.token}`
+        });
+        return this.http.post<any>("http://localhost:3000/api/user/verify", {headers:headers});
+    }
 }
