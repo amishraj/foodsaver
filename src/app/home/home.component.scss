@@ -32,3 +32,39 @@
   .media-card .media-left img.is-rounded {
     border-radius: 50%;
   }
+
+  .custom-input::placeholder {
+    background-color: #ff9b54; /* Change the background color */
+    color: white; /* Change the text color */
+    border: 1px solid #ff9b54; /* Change the border color and width */
+    padding: 50px; /* Add some padding inside the input box */
+    /* Add more styling as needed */
+  }
+
+// .prompt-text {
+//   text-align: right; /* Center the text */
+//   margin-bottom: 10px; /* Adjust spacing between the text and the input box */
+//   color: #ff9b54;/* Add any additional styling you need for the text here */
+// }
+
+
+// .hungry1{
+//   size: 30px;
+//   border-radius: 50%;
+// }
+
+.prompt-container {
+  display: flex; /* Activates Flexbox */
+  justify-content: center; /* Centers the items horizontally */
+  align-items: center; /* Centers the items vertically */
+}
+
+.prompt-text {
+  margin-right: 10px; /* Adds spacing between the text and the icon */
+  color: #ff9b54; /* Your custom text color */
+}
+
+.hungry1 {
+  width: 50px; /* Size of the icon */
+  border-radius: 50%; /* Makes the icon circular */
+}
