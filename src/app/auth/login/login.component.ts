@@ -16,8 +16,15 @@ export class LoginComponent {
     if (form.invalid) {
       return;
     }
-    this.isLoading=true;
-    this.authService.login(form.value.email, form.value.password);
+    this.isLoading = true;
+    this.authService.login(form.value.email, form.value.password)
+      .subscribe(
+        response => {
+        },
+        error => {
+          alert("Invalid Credentials")
+        }
+      );
   }
 
 }
