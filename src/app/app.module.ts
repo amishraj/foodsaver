@@ -19,6 +19,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { ProfileComponent } from './profile/profile.component';
 import { AddmealComponent } from './profile/addmeal/addmeal.component';
+import { ReserveComponent } from './reserve/reserve.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AddmealComponent } from './profile/addmeal/addmeal.component';
     RestaurantComponent,
     ProfileComponent,
     AddmealComponent,
+    ReserveComponent,
   ],
   imports: [
     BrowserModule,

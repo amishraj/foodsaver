@@ -22,7 +22,11 @@ export class SignupComponent implements OnInit {
     email: '',
     address: '',
     phone: '',
-    status:''
+    status:'',
+    type:'',
+    ongoingReservations:[],
+    historyReservations:[],
+    canceledReservations:[]
   };
   pg1 = true;
   pwd = '';
@@ -55,6 +59,7 @@ export class SignupComponent implements OnInit {
       this.user.address = form.value.address;
       this.user.phone = form.value.cellNumber;
       this.user.status = 'unverified';
+      this.user.type = "user"
 
       this.authService.createUser(this.user, this.pwd).subscribe(
         (response: any) => {

@@ -3,58 +3,69 @@ import { User } from '../interfaces/user';
 import { AuthService } from '../auth/auth.service';
 import { Restaurant } from '../interfaces/restaurant';
 import { RestaurantService } from '../restaurants/restaurant.service';
+import { Reservation } from '../interfaces/reservation';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit{
+export class ProfileComponent implements OnInit {
 
-  constructor(private authService: AuthService, private restaurantService: RestaurantService){}
+  constructor(private authService: AuthService, private restaurantService: RestaurantService) { }
 
   activeTab: string = 'History';
   modalVerifyIsActive = false;
   modalMealIsActive = false;
-  myRestaurants?:Restaurant[];
-  selected!:string;
-  isVerified!:Boolean;
-  displayVerifyTag:Boolean=false;
+  myRestaurants?: Restaurant[];
+  selected!: string;
+  isVerified!: Boolean;
+  displayVerifyTag: Boolean = false;
 
   setActiveTab(tab: string): void {
     this.activeTab = tab;
   }
 
-  user:User={
-    fname:'',
-    lname:'',
-    email:'',
-    address:'',
-    phone:'',
-    status:''
+  user: User = {
+    fname: '',
+    lname: '',
+    email: '',
+    address: '',
+    phone: '',
+    status: '',
+    type: '',
+    ongoingReservations: [],
+    historyReservations: [],
+    canceledReservations: []
   }
 
+  ongoingReservations!: Reservation[]
+
   ngOnInit() {
-    this.user ={
-      fname:'',
-      lname:'',
-      email:'',
-      address:'',
-      phone:'',
-      status:''
+    this.user = {
+      fname: '',
+      lname: '',
+      email: '',
+      address: '',
+      phone: '',
+      status: '',
+      type: '',
+      ongoingReservations: [],
+      historyReservations: [],
+      canceledReservations: []
     }
 
     this.authService.getCurrentUser().subscribe(
       (user: User) => {
         this.user = user;
-        this.isVerified = user.status === "verified"? true:false;
-        this.displayVerifyTag=true;
-        
+        this.isVerified = user.status === "verified" ? true : false;
+        this.displayVerifyTag = true;
+
         this.restaurantService.getMyRestaurants(user.email).subscribe(
-          (data)=>{
-            this.myRestaurants= data.restaurants;
+          (data) => {
+            this.myRestaurants = data.restaurants;
           },
-          (error)=>{
+          (error) => {
             console.error('Error fetching restaurants:', error);
           }
         )
@@ -64,6 +75,16 @@ export class ProfileComponent implements OnInit{
         // Handle the error if needed
       }
     );
+
+    //fetch ongoing reservations
+    this.authService.getReservations().subscribe(
+      (data) => {
+        this.ongoingReservations = data.ongoingReservations
+      },
+      (error) => {
+        console.error(error)
+      }
+    )
   }
 
   //Get verified Modal Methods
@@ -82,11 +103,11 @@ export class ProfileComponent implements OnInit{
 
     //verify the account
     this.authService.verifyUser().subscribe(
-      (data)=>{
+      (data) => {
         alert(data.message)
         window.location.reload();
       },
-      (error)=>{
+      (error) => {
         alert("Couldn't verify your account. Please try again later.")
         console.error(error)
       }
@@ -94,14 +115,14 @@ export class ProfileComponent implements OnInit{
   }
 
   //Meal Modal Methods
-  openModalMeal(restaurant:Restaurant) {
+  openModalMeal(restaurant: Restaurant) {
     this.modalMealIsActive = true;
-    this.selected= restaurant.title;
+    this.selected = restaurant.title;
   }
 
   closeModalMeal() {
     this.modalMealIsActive = false;
-    this.selected='';
+    this.selected = '';
   }
 
   saveMealChanges() {
@@ -109,7 +130,14 @@ export class ProfileComponent implements OnInit{
     this.closeModalMeal(); // Optionally close the modal after saving changes
   }
 
-  showMeals(restaurant:Restaurant){
-    
+  showMeals(restaurant: Restaurant) {
+    //TBD
+  }
+
+  mealAdded($event: boolean) {
+    if($event){
+      this.closeModalMeal();
+    }
+    window.location.reload();
   }
 }

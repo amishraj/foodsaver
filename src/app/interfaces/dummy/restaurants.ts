@@ -2,11 +2,47 @@ import { Restaurant } from "../restaurant";
 
 export const RESTAURANTS: Restaurant[] = [
   {
+    id: 0,
+    title: 'Spice 6',
+    address: '123 Main St, Washington, D.C.',
+    phone: '(202) 555-1234',
+    email: 'amishu197@gmail.com',
+    rating: '4.5',
+    image:'https://images.unsplash.com/photo-1571241156266-2cf348296ff2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTF8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
+    meals: [
+
+      {
+        "title": "Samosa Chaat",
+        "description": "Crushed samosa with sauces",
+        "zipcode": "20037",
+        "calories": 123,
+        "rating": 3,
+        "image": "https://example.com/image.jpg",
+        "glutenFree": false,
+        "vegan": true,
+        "vegetarian": false,
+        "status":"open"
+      },
+      {
+        "title": "Chole Bhature",
+        "description": "Bread and chickpea curry served with a side of rice",
+        "zipcode": "20037",
+        "calories": 123,
+        "rating": 3,
+        "image": "https://example.com/image.jpg",
+        "glutenFree": false,
+        "vegan": true,
+        "vegetarian": true,
+        "status":"open"
+      }
+    ]
+  },
+  {
     id: 1,
     title: 'Cafe Amore',
     address: '123 Main St, Washington, D.C.',
     phone: '(202) 555-1234',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.5',
     image:'https://images.unsplash.com/photo-1571241156266-2cf348296ff2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTF8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -20,7 +56,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Margherita Pizza",
@@ -31,7 +68,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Vegetable Stir-Fry",
@@ -42,7 +80,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Salmon Teriyaki",
@@ -53,7 +92,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Quinoa Salad",
@@ -64,7 +104,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -73,7 +114,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'The Capital Grill',
     address: '456 Elm St, Washington, D.C.',
     phone: '(202) 555-5678',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.8',
     image:'https://images.unsplash.com/photo-1556608172-52d61a005b9e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTJ8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [{
@@ -85,7 +126,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": false,
       "vegan": false,
-      "vegetarian": false
+      "vegetarian": false,
+      "status":"open"
     },
     {
       "title": "Mango Avocado Salsa",
@@ -96,7 +138,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": true,
       "vegan": true,
-      "vegetarian": true
+      "vegetarian": true,
+      "status":"open"
     },
     {
       "title": "Spinach and Feta Stuffed Chicken",
@@ -107,7 +150,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": false,
       "vegan": false,
-      "vegetarian": false
+      "vegetarian": false,
+      "status":"open"
     }]
   },
   {
@@ -115,7 +159,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'La Trattoria',
     address: '789 Oak St, Washington, D.C.',
     phone: '(202) 555-9876',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.3',
     image:'https://images.unsplash.com/photo-1469631423273-6995642a6a40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTN8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -128,7 +172,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Black Bean Burger",
@@ -139,7 +184,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Caprese Panini",
@@ -150,7 +196,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Shrimp Scampi",
@@ -161,7 +208,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -170,7 +218,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'The Red Pepper',
     address: '101 Walnut St, Washington, D.C.',
     phone: '(202) 555-6543',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.0',
     image:'https://images.unsplash.com/photo-1553531889-e6cf4d692b1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTR8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [{
@@ -182,7 +230,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": false,
       "vegan": false,
-      "vegetarian": true
+      "vegetarian": true,
+      "status":"open"
     },
     {
       "title": "Avocado Toast",
@@ -193,7 +242,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": true,
       "vegan": true,
-      "vegetarian": true
+      "vegetarian": true,
+      "status":"open"
     },
     {
       "title": "Chicken Pesto Pasta",
@@ -204,7 +254,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": false,
       "vegan": false,
-      "vegetarian": false
+      "vegetarian": false,
+      "status":"open"
     },
     {
       "title": "Sweet Potato and Black Bean Bowl",
@@ -215,7 +266,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": true,
       "vegan": true,
-      "vegetarian": true
+      "vegetarian": true,
+      "status":"open"
     }]
   },
   {
@@ -223,7 +275,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Seafood Haven',
     address: '234 Pine St, Washington, D.C.',
     phone: '(202) 555-3456',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.7',
     image:'https://images.unsplash.com/photo-1671074344915-0dc2ba44c668?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMjAwfHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -236,7 +288,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Hawaiian Poke Bowl",
@@ -247,7 +300,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Lemon Garlic Chicken",
@@ -258,7 +312,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -267,7 +322,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Casa de Sabor',
     address: '567 Birch St, Washington, D.C.',
     phone: '(202) 555-4321',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.2',
     image:'https://images.unsplash.com/photo-1598520101714-5fbfb50ea31a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTV8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -280,7 +335,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Teriyaki Tofu Bowl",
@@ -291,7 +347,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Beef and Broccoli Stir-Fry",
@@ -302,7 +359,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Caesar Salad",
@@ -313,7 +371,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -322,7 +381,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Spice Bazaar',
     address: '789 Cedar St, Washington, D.C.',
     phone: '(202) 555-8765',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.6',
     image:'https://images.unsplash.com/photo-1553852056-0ca90e897efa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTZ8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -335,7 +394,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Mushroom Risotto",
@@ -346,7 +406,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Sweet Potato and Chickpea Curry",
@@ -357,7 +418,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -366,7 +428,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Bistro 360',
     address: '123 Cherry St, Washington, D.C.',
     phone: '(202) 555-7890',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.4',
     image:'https://images.unsplash.com/photo-1517317914113-cbdb8738087a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTd8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -379,7 +441,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Lemon Herb Grilled Salmon",
@@ -390,7 +453,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Vegetable Lasagna",
@@ -401,7 +465,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -410,7 +475,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Harborview Restaurant',
     address: '345 Apple St, Washington, D.C.',
     phone: '(202) 555-2345',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.9',
     image:'https://images.unsplash.com/photo-1565320960227-52533d26aa04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTh8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -423,7 +488,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Teriyaki Chicken Bowl",
@@ -434,7 +500,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Eggplant Parmesan",
@@ -445,7 +512,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -454,7 +522,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Taste of India',
     address: '567 Fig St, Washington, D.C.',
     phone: '(202) 555-5678',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.1',
     image:'https://images.unsplash.com/photo-1565847198424-41313629be07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTl8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -467,7 +535,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Caprese Salad",
@@ -478,7 +547,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Chicken Fajitas",
@@ -489,7 +559,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -498,7 +569,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'The Grill House',
     address: '101 Olive St, Washington, D.C.',
     phone: '(202) 555-3456',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.7',
     image:'https://images.unsplash.com/photo-1542500938-4936c228bc66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw3MDB8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -511,7 +582,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Honey Mustard Glazed Salmon",
@@ -522,7 +594,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Mediterranean Quinoa Bowl",
@@ -533,7 +606,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -542,7 +616,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Mediterranean Delight',
     address: '234 Walnut St, Washington, D.C.',
     phone: '(202) 555-8765',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.3',
     image:'https://images.unsplash.com/photo-1583447059716-4541637d0256?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTkxfHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -555,7 +629,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Pesto Pasta with Sun-Dried Tomatoes",
@@ -566,7 +641,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Blackened Shrimp Tacos",
@@ -577,7 +653,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -586,7 +663,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Noodle World',
     address: '456 Pine St, Washington, D.C.',
     phone: '(202) 555-4321',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.5',
     image:'https://images.unsplash.com/photo-1553443175-e1ce8896d8f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTkyfHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -599,7 +676,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Spicy Tofu Burrito",
@@ -610,7 +688,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Baked Ziti",
@@ -621,7 +700,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -630,7 +710,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Sushi Central',
     address: '789 Elm St, Washington, D.C.',
     phone: '(202) 555-1234',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.6',
     image:'https://images.unsplash.com/photo-1583868838589-f6ff3e01cadc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTkzfHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -643,7 +723,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Crispy Buffalo Cauliflower Bites",
@@ -654,7 +735,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Pineapple Coconut Chicken Curry",
@@ -665,7 +747,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -674,7 +757,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'BBQ Junction',
     address: '123 Oak St, Washington, D.C.',
     phone: '(202) 555-9876',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.2',
     image:'https://images.unsplash.com/photo-1616045152590-ebda3a20804c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTk0fHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -687,7 +770,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Mango Chicken Quesadilla",
@@ -698,7 +782,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Stuffed Bell Peppers",
@@ -709,7 +794,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -718,7 +804,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'The Chocolate Cafe',
     address: '345 Cedar St, Washington, D.C.',
     phone: '(202) 555-2345',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.4',
     image:'https://images.unsplash.com/photo-1669310095420-8cd109dba5cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTk1fHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -731,7 +817,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -740,7 +827,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Farm to Table',
     address: '567 Walnut St, Washington, D.C.',
     phone: '(202) 555-5678',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.8',
     image:'https://images.unsplash.com/photo-1557595093-bec93a1fafda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTk2fHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -753,7 +840,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Quinoa and Black Bean Bowl",
@@ -764,7 +852,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -773,7 +862,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Soul Food Shack',
     address: '101 Elm St, Washington, D.C.',
     phone: '(202) 555-8765',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.7',
     image:'https://images.unsplash.com/photo-1504080996122-28bf81b7c681?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTk3fHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -786,7 +875,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Caprese Stuffed Portobello Mushrooms",
@@ -797,7 +887,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -806,7 +897,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Pasta Palace',
     address: '234 Pine St, Washington, D.C.',
     phone: '(202) 555-4321',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.5',
     image:'https://images.unsplash.com/photo-1592823549535-53c18393f1c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTk4fHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -819,7 +910,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Sesame Ginger Tofu Stir-Fry",
@@ -830,7 +922,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Tomato Basil Bruschetta",
@@ -841,7 +934,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -850,7 +944,7 @@ export const RESTAURANTS: Restaurant[] = [
     title: 'Gourmet Grind',
     address: '456 Oak St, Washington, D.C.',
     phone: '(202) 555-1234',
-    email: 'test@test.com',
+    email: 'amishu197@gmail.com',
     rating: '4.6',
     image:'https://images.unsplash.com/photo-1528591922185-a0eb2f8f50b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTk5fHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
@@ -864,7 +958,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Mushroom and Spinach Quesadilla",
@@ -875,7 +970,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Pesto Chicken Penne",
@@ -886,7 +982,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Crispy Tofu Tacos",
@@ -897,7 +994,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   }

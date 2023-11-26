@@ -11,7 +11,33 @@
             &nbsp;
           </span>
 
-          <button class="button is-primary">Reserve</button>
+          <button class="button is-primary" [disabled]="!auth || !verified || currentUser.type== 'partner' || status==='reserved'" (click)="openModalReserve()">
+            <span *ngIf="status==='open'">Reserve</span>
+            <span *ngIf="status==='reserved'">Reserved</span>
+            <div class="tooltip" *ngIf="!auth">
+              &nbsp;
+              <i class="fas fa-exclamation-triangle"></i>
+              <span class="tooltiptext">
+                Please login
+              </span>
+            </div>
+
+            <div class="tooltip" *ngIf="auth && !verified">
+              &nbsp;
+              <i class="fas fa-exclamation-triangle"></i>
+              <span class="tooltiptext">
+                Please verify account under profile
+              </span>
+            </div>
+
+            <div class="tooltip" *ngIf="userType== 'partner'">
+              &nbsp;
+              <i class="fas fa-exclamation-triangle"></i>
+              <span class="tooltiptext">
+                Partners cannot reserve meals!
+              </span>
+            </div>
+          </button>
         </div>
       </div>
       <span class="tag is-light rating-label" *ngIf="isVegan">Vegan</span>
@@ -22,5 +48,76 @@
         {{rating}}
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Modal reserve meals structure -->
+<div class="modal" [ngClass]="{ 'is-active': modalReserveIsActive }">
+  <div class="modal-background" (click)="closeModalReserve()"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">{{ title }}</p>
+      <span class="tag is-primary is-light rating-label">
+        {{ rating }}
+        &nbsp;
+        <i class="fas fa-star"></i>
+      </span>
+      <button class="delete" aria-label="close" (click)="closeModalReserve()"></button>
+    </header>
+
+    <!-- Modal Body -->
+    <section class="modal-card-body" *ngIf="!reserveSuccess">
+      <!-- Meal Information -->
+      <div>
+        <p><strong>Description:</strong> {{ description }}</p>
+        <div>
+          <span class="tag is-light" *ngIf="isVegan">Vegan</span>
+          <span class="tag is-light" *ngIf="isVeg">Vegetarian</span>
+          <span class="tag is-light" *ngIf="isGlutenFree">Gluten-Free</span>
+        </div>
+      </div>
+
+      <!-- Time Selection Bar -->
+      <div style="margin-top: 20px;">
+        <p style="margin-bottom: 5px;">Let's pick a time that works best for you</p>
+        <div class="columns is-mobile">
+          <div class="column">
+            <button class="button is-outlined is-primary" [class.is-active]="selectedTimeSlot === slot"
+              *ngFor="let slot of timeSlots" (click)="selectTimeSlot(slot)"
+              [style.background-color]="selectedTimeSlot === slot ? '#4F000B' : '#FF9B54'"
+              [style.color]="selectedTimeSlot === slot ? '#fff' : '#fff'"
+              [style.border-color]="selectedTimeSlot === slot ? '#4F000B' : '#FF9B54'" style="margin-right: 10px;">
+              {{ slot }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <br>
+      <!-- Confirmation Message -->
+      <div>
+        <p><strong>Confirm Reservation?</strong></p>
+      </div>
+    </section>
+
+    <section class="modal-card-body" *ngIf="reserveSuccess">
+      <!-- Success Confirmation Message -->
+      <div class="has-text-centered">
+        <p class="title is-3"><i class="fas fa-check-circle has-text-success"></i></p>
+        <p class="subtitle is-6">Reservation Confirmed!</p>
+      </div>
+    </section>
+
+    <!-- Modal Footer -->
+    <footer class="modal-card-foot">
+
+      <!-- Action Buttons -->
+      <div class="buttons">
+        <button *ngIf="!reserveSuccess" class="button is-primary" (click)="confirmReservation()">Confirm</button>
+        <button *ngIf="!reserveSuccess" class="button" (click)="closeModalReserve()">Cancel</button>
+        <button *ngIf="reserveSuccess" class="button" (click)="closeModalReserve()">Done</button>
+      </div>
+    </footer>
   </div>
 </div>
