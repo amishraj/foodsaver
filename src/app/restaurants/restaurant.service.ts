@@ -3,11 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Meal } from '../interfaces/meal';
+import { Reservation } from '../interfaces/reservation';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestaurantService {
+
   private apiUrl = 'http://localhost:3000/api/restaurant';
 
   constructor(private http: HttpClient) { }
@@ -60,4 +62,12 @@ export class RestaurantService {
 
     return this.http.put<any>("http://localhost:3000/api/restaurant/updateMeals", data, {headers:headers})
   }
+
+  reserve(newReservation: Reservation) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.post<any>("http://localhost:3000/api/restaurant/reserve", newReservation, {headers:headers});
+  }
+
 }

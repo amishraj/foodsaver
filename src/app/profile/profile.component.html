@@ -81,6 +81,9 @@
       </ul>
     </div>
     
+    <div *ngIf="activeTab === 'Ongoing'">
+      <app-reserve *ngFor="reservation of ongoingReservations; let i=index" [reservation]="ongoingReservations[i]" style="margin-bottom: 10px;"></app-reserve>
+    </div>
   </div>
 </section>
 

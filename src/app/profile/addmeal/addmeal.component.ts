@@ -25,7 +25,8 @@ export class AddmealComponent {
         image: "https://example.com/image.jpg",
         glutenFree: form.value.glutenFree,
         vegan: form.value.vegan,
-        vegetarian: form.value.vegetarian
+        vegetarian: form.value.vegetarian,
+        status:"open"
       }
 
       this.restaurantService.addMeal(mealObject, this.restaurantTitle).subscribe(

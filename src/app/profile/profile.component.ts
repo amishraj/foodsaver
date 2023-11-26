@@ -3,6 +3,7 @@ import { User } from '../interfaces/user';
 import { AuthService } from '../auth/auth.service';
 import { Restaurant } from '../interfaces/restaurant';
 import { RestaurantService } from '../restaurants/restaurant.service';
+import { Reservation } from '../interfaces/reservation';
 
 @Component({
   selector: 'app-profile',
@@ -31,8 +32,14 @@ export class ProfileComponent implements OnInit{
     email:'',
     address:'',
     phone:'',
-    status:''
+    status:'',
+    type:'',
+    ongoingReservations:[],
+    historyReservations:[],
+    canceledReservations:[]
   }
+
+  ongoingReservations!:Reservation[]
 
   ngOnInit() {
     this.user ={
@@ -41,7 +48,11 @@ export class ProfileComponent implements OnInit{
       email:'',
       address:'',
       phone:'',
-      status:''
+      status:'',
+      type:'',
+      ongoingReservations:[],
+      historyReservations:[],
+      canceledReservations:[]
     }
 
     this.authService.getCurrentUser().subscribe(
@@ -64,6 +75,16 @@ export class ProfileComponent implements OnInit{
         // Handle the error if needed
       }
     );
+
+    //fetch ongoing reservations
+    this.authService.getReservations().subscribe(
+      (data)=>{
+        this.ongoingReservations=data.ongoingReservations
+      },
+      (error)=>{
+        console.error(error)
+      }
+    )
   }
 
   //Get verified Modal Methods

@@ -9,7 +9,8 @@ const mealSchema = mongoose.Schema({
     image: { type: String, required: true },
     glutenFree: { type: Boolean, required: true },
     vegan: { type: Boolean, required: true },
-    vegetarian: { type: Boolean, required: true }
+    vegetarian: { type: Boolean, required: true },
+    status: {type:String, required:true}
   });
 
 const restaurantSchema = mongoose.Schema({

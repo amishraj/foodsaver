@@ -24,22 +24,4 @@ export class RestaurantsComponent implements OnInit{
     });
   }
 
-  // getRandomImageUrl(){
-  //   const randomPage = Math.floor(Math.random() * 200) + 1; 
-
-  //   const randomPhoto = Math.floor(Math.random() * 10) + 1;
-
-  //   this.restaurantService.getRandomImage(randomPage.toString()).subscribe(
-  //     data => {
-  //       // Handle the data (data will contain the response from the API)
-  //       console.log(data.results[randomPhoto].urls.regular);
-  //       this.randomUrls.push(data.results[randomPhoto].urls.regular)
-  //     },
-  //     error => {
-  //       // Handle errors
-  //       console.error(error);
-  //     }
-  //   );
-  // }
-
 }

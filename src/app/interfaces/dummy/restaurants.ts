@@ -2,6 +2,42 @@ import { Restaurant } from "../restaurant";
 
 export const RESTAURANTS: Restaurant[] = [
   {
+    id: 0,
+    title: 'Spice 6',
+    address: '123 Main St, Washington, D.C.',
+    phone: '(202) 555-1234',
+    email: 'amishu197@gmail.com',
+    rating: '4.5',
+    image:'https://images.unsplash.com/photo-1571241156266-2cf348296ff2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTF8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
+    meals: [
+
+      {
+        "title": "Samosa Chaat",
+        "description": "Crushed samosa with sauces",
+        "zipcode": "20037",
+        "calories": 123,
+        "rating": 3,
+        "image": "https://example.com/image.jpg",
+        "glutenFree": false,
+        "vegan": true,
+        "vegetarian": false,
+        "status":"open"
+      },
+      {
+        "title": "Chole Bhature",
+        "description": "Bread and chickpea curry served with a side of rice",
+        "zipcode": "20037",
+        "calories": 123,
+        "rating": 3,
+        "image": "https://example.com/image.jpg",
+        "glutenFree": false,
+        "vegan": true,
+        "vegetarian": true,
+        "status":"open"
+      }
+    ]
+  },
+  {
     id: 1,
     title: 'Cafe Amore',
     address: '123 Main St, Washington, D.C.',
@@ -20,7 +56,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Margherita Pizza",
@@ -31,7 +68,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Vegetable Stir-Fry",
@@ -42,7 +80,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Salmon Teriyaki",
@@ -53,7 +92,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Quinoa Salad",
@@ -64,7 +104,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -85,7 +126,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": false,
       "vegan": false,
-      "vegetarian": false
+      "vegetarian": false,
+      "status":"open"
     },
     {
       "title": "Mango Avocado Salsa",
@@ -96,7 +138,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": true,
       "vegan": true,
-      "vegetarian": true
+      "vegetarian": true,
+      "status":"open"
     },
     {
       "title": "Spinach and Feta Stuffed Chicken",
@@ -107,7 +150,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": false,
       "vegan": false,
-      "vegetarian": false
+      "vegetarian": false,
+      "status":"open"
     }]
   },
   {
@@ -128,7 +172,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Black Bean Burger",
@@ -139,7 +184,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Caprese Panini",
@@ -150,7 +196,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Shrimp Scampi",
@@ -161,7 +208,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -182,7 +230,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": false,
       "vegan": false,
-      "vegetarian": true
+      "vegetarian": true,
+      "status":"open"
     },
     {
       "title": "Avocado Toast",
@@ -193,7 +242,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": true,
       "vegan": true,
-      "vegetarian": true
+      "vegetarian": true,
+      "status":"open"
     },
     {
       "title": "Chicken Pesto Pasta",
@@ -204,7 +254,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": false,
       "vegan": false,
-      "vegetarian": false
+      "vegetarian": false,
+      "status":"open"
     },
     {
       "title": "Sweet Potato and Black Bean Bowl",
@@ -215,7 +266,8 @@ export const RESTAURANTS: Restaurant[] = [
       "image": "https://via.placeholder.com/200",
       "glutenFree": true,
       "vegan": true,
-      "vegetarian": true
+      "vegetarian": true,
+      "status":"open"
     }]
   },
   {
@@ -236,7 +288,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Hawaiian Poke Bowl",
@@ -247,7 +300,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Lemon Garlic Chicken",
@@ -258,7 +312,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -280,7 +335,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Teriyaki Tofu Bowl",
@@ -291,7 +347,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Beef and Broccoli Stir-Fry",
@@ -302,7 +359,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Caesar Salad",
@@ -313,7 +371,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -335,7 +394,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Mushroom Risotto",
@@ -346,7 +406,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Sweet Potato and Chickpea Curry",
@@ -357,7 +418,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -379,7 +441,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Lemon Herb Grilled Salmon",
@@ -390,7 +453,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Vegetable Lasagna",
@@ -401,7 +465,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -423,7 +488,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Teriyaki Chicken Bowl",
@@ -434,7 +500,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Eggplant Parmesan",
@@ -445,7 +512,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -467,7 +535,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Caprese Salad",
@@ -478,7 +547,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Chicken Fajitas",
@@ -489,7 +559,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -511,7 +582,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Honey Mustard Glazed Salmon",
@@ -522,7 +594,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Mediterranean Quinoa Bowl",
@@ -533,7 +606,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -555,7 +629,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Pesto Pasta with Sun-Dried Tomatoes",
@@ -566,7 +641,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Blackened Shrimp Tacos",
@@ -577,7 +653,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -599,7 +676,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Spicy Tofu Burrito",
@@ -610,7 +688,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Baked Ziti",
@@ -621,7 +700,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -643,7 +723,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Crispy Buffalo Cauliflower Bites",
@@ -654,7 +735,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Pineapple Coconut Chicken Curry",
@@ -665,7 +747,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -687,7 +770,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Mango Chicken Quesadilla",
@@ -698,7 +782,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Stuffed Bell Peppers",
@@ -709,7 +794,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -731,7 +817,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       }
     ]
   },
@@ -753,7 +840,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Quinoa and Black Bean Bowl",
@@ -764,7 +852,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -786,7 +875,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Caprese Stuffed Portobello Mushrooms",
@@ -797,7 +887,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -819,7 +910,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Sesame Ginger Tofu Stir-Fry",
@@ -830,7 +922,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Tomato Basil Bruschetta",
@@ -841,7 +934,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   },
@@ -864,7 +958,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Mushroom and Spinach Quesadilla",
@@ -875,7 +970,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       },
       {
         "title": "Pesto Chicken Penne",
@@ -886,7 +982,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": false
+        "vegetarian": false,
+        "status":"open"
       },
       {
         "title": "Crispy Tofu Tacos",
@@ -897,7 +994,8 @@ export const RESTAURANTS: Restaurant[] = [
         "image": "https://via.placeholder.com/200",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        "status":"open"
       }
     ]
   }
