@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Reservation } from 'src/app/interfaces/reservation';
 import { Restaurant } from 'src/app/interfaces/restaurant';
@@ -17,40 +18,45 @@ export class MealComponent implements OnInit {
   @Input() rating!: number;
   @Input() zipcode!: string;
   @Input() calories!: number;
-  @Input() image!:string;
+  @Input() image!: string;
   @Input() isVegan!: boolean;
   @Input() isVeg!: boolean;
   @Input() isGlutenFree!: boolean;
   @Input() fromRestaurant: boolean = false;
-  @Input() restaurant!:Restaurant;
+  @Input() restaurant!: Restaurant;
+  @Input() status!: string;
 
   timeSlots: string[] = ['12pm', '3pm', '6pm', '9pm'];
   selectedTimeSlot: string = '';
   modalReserveIsActive = false;
-  currentUser!:User;
-  reserveSuccess=false;
+  currentUser!: User;
+  reserveSuccess = false;
 
-  auth=false; //is the user authed?
-  verified=false; //is the user verified?
+  auth = false; //is the user authed?
+  verified = false; //is the user verified?
+  userType = ''; //is the user a partner/user?
 
-  public constructor(private authService: AuthService, private restaurantService: RestaurantService) { }
+  public constructor(private authService: AuthService, private restaurantService: RestaurantService, private router: Router) { }
 
   ngOnInit(): void {
-    this.reserveSuccess=false;
+    this.reserveSuccess = false;
     this.authService.getCurrentUser().subscribe(
-      (data)=>{
-        this.currentUser=data;
-        this.auth=true;
+      (data) => {
+        this.currentUser = data;
+        this.auth = true;
 
         //check verification
-        if(data.status==="verified"){
-          this.verified=true;
-        } else{
-          this.verified=false;
+        if (data.status === "verified") {
+          this.verified = true;
+        } else {
+          this.verified = false;
         }
-      }, (error)=>{
+
+        //check user type
+        this.userType = data.type;
+      }, (error) => {
         //if user not authed, disable the reserve buttons
-        this.auth=false;
+        this.auth = false;
       }
     )
   }
@@ -73,7 +79,8 @@ export class MealComponent implements OnInit {
 
   closeModalReserve() {
     this.modalReserveIsActive = false;
-    this.reserveSuccess=false;
+    this.reserveSuccess = false;
+    this.router.navigate(['/']);
   }
 
   selectTimeSlot(slot: string) {
@@ -97,20 +104,21 @@ export class MealComponent implements OnInit {
         glutenFree: this.isGlutenFree,
         vegan: this.isVegan,
         vegetarian: this.isVeg,
-        status:'open'
+        status: 'open'
       },
-      restaurant:this.restaurant.title,
+      restaurant: this.restaurant.title,
       reservationTime: this.selectedTimeSlot,
       user: this.currentUser
     };
 
     this.restaurantService.reserve(newReservation).subscribe(
-      (data)=>{
+      (data) => {
         console.log(data)
-        this.reserveSuccess=true;
+        this.reserveSuccess = true;
       },
-      (error)=>{
+      (error) => {
         console.error(error)
+        alert("Error during reservation")
       }
     );
   }

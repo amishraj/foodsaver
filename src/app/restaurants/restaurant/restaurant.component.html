@@ -61,7 +61,7 @@
 
             <div class="column">
                 <app-meal *ngFor="let meal of restaurant.meals" [title]="meal.title" [description]="meal.description"
-                    [rating]="meal.rating" [zipcode]="meal.zipcode" [calories]="meal.calories" [image]="meal.image" [isVegan]="meal.vegan" [isVeg]="meal.vegetarian"
+                    [rating]="meal.rating" [zipcode]="meal.zipcode" [status]="meal.status" [calories]="meal.calories" [image]="meal.image" [isVegan]="meal.vegan" [isVeg]="meal.vegetarian"
                     [isGlutenFree]="meal.glutenFree" [restaurant]="restaurant" [fromRestaurant]=true></app-meal>
             </div>
         </div>

@@ -12,10 +12,18 @@ import { RestaurantService } from './restaurant.service';
 export class RestaurantsComponent implements OnInit{
   constructor(private router: Router, private restaurantService: RestaurantService){}
   
-  restaurants: Restaurant[] = RESTAURANTS;
+  restaurants!: Restaurant[];
   randomUrls:string[]=[]
 
   ngOnInit(): void {
+    this.restaurantService.getAllRestaurants().subscribe(
+      (data)=>{
+        this.restaurants=data.restaurants;
+      },
+      (error)=>{
+        console.error(error)
+      }
+    )
   }
 
   onCardClick(restaurant: Restaurant) {

@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
+const axios = require('axios'); // Make sure to import axios
 
 const Restaurant = require("../models/restaurant");
 const User = require("../models/user");
@@ -31,16 +32,27 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post("/new", upload.single("pdfFile"), (req, res, next) => {
+router.post("/new", upload.single("pdfFile"), async (req, res, next) => {
+
+  // Generate a random page between 0-200
+  const randomPage = Math.floor(Math.random() * 201);
+
+  // Call getRandomImage to get a random image URL
+  const imageResponse = await getRandomImage(randomPage);
+  const imageUrl = imageResponse.data.results[Math.floor(Math.random() * 10)].urls.regular;
+
+
   const restaurant = new Restaurant({
     title: req.body.title,
     address: req.body.address,
     phone: req.body.phone,
     email: req.body.email,
     rating: req.body.rating,
+    image: imageUrl,
     meals: [],
     pdfFile: req.file.path
   });
+  //TBD: Generate a random image
 
   restaurant
     .save()
@@ -57,6 +69,34 @@ router.post("/new", upload.single("pdfFile"), (req, res, next) => {
     });
 });
 
+//DUMMY
+// router.post("/dummy", upload.single("pdfFile"), (req, res, next) => {
+//   const restaurant = new Restaurant({
+//     title: req.body.title,
+//     address: req.body.address,
+//     phone: req.body.phone,
+//     email: req.body.email,
+//     rating: req.body.rating,
+//     image: req.body.image,
+//     meals: req.body.meals,
+//     pdfFile: ''
+//   });
+
+//   restaurant
+//     .save()
+//     .then((result) => {
+//       res.status(201).json({
+//         message: "Restaurant created!",
+//         result: result,
+//       });
+//     })
+//     .catch((err) => {
+//       res.status(500).json({
+//         error: err,
+//       });
+//     });
+// });
+
 router.get('/', (req, res, next) => {
   Restaurant.find()
     .then(restaurants => {
@@ -68,6 +108,7 @@ router.get('/', (req, res, next) => {
           phone: restaurant.phone,
           email: restaurant.email,
           rating: restaurant.rating,
+          image: restaurant.image,
           meals: restaurant.meals,
           pdfFile: restaurant.pdfFile,
         };
@@ -258,29 +299,76 @@ router.post('/reserve', async (req, res) => {
 
 router.post('/cancelReservation', async (req, res) => {
   try {
-    const reservationId = req.body.reservationId;
+    // Extract parameters from the request body
+    const { meal, restaurant, reservationTime, user } = req.body;
 
-    // Find the reservation by ID and update its status to "canceled"
-    const updatedReservation = await Reservation.findByIdAndUpdate(
-      reservationId,
-      { 'meal.status': 'canceled' },
-      { new: true }
+    // Find the user by email
+    const userObj = await User.findOne({ email: user.email });
+
+    if (!userObj) {
+      return res.status(404).json({ message: 'User not found.' });
+    }
+
+    // Find the reservation in ongoingReservations based on meal, restaurant, reservationTime
+    const reservationIndex = userObj.ongoingReservations.findIndex(
+      (res) =>
+        res.meal.title === meal.title &&
+        res.restaurant === restaurant &&
+        res.reservationTime === reservationTime
     );
 
-    if (!updatedReservation) {
-      // If the reservation with the given ID is not found
+    if (reservationIndex === -1) {
       return res.status(404).json({ message: 'Reservation not found.' });
     }
 
-    // Return the updated reservation
+    // Move the meal from ongoingReservations to canceledReservations
+    const canceledReservation = userObj.ongoingReservations.splice(
+      reservationIndex,
+      1
+    )[0];
+    userObj.canceledReservations.push(canceledReservation);
+
+    // Find the restaurant by title
+    const restaurantObj = await Restaurant.findOne({ title: restaurant });
+
+    if (!restaurantObj) {
+      return res.status(404).json({ message: 'Restaurant not found.' });
+    }
+
+    // Find the meal in the restaurant's meals array
+    const mealObj = restaurantObj.meals.find(
+      (m) => m.title === meal.title && m.status === 'reserved'
+    );
+
+    if (!mealObj) {
+      return res.status(404).json({ message: 'Meal not found.' });
+    }
+
+    // Update the status of the meal to 'open' in the restaurant
+    mealObj.status = 'open';
+
+    // Save changes to the database
+    await userObj.save();
+    await restaurantObj.save();
+
     res.status(200).json({
       message: 'Reservation canceled successfully.',
-      reservation: updatedReservation,
+      canceledReservation,
     });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+// Function to get a random image
+async function getRandomImage(page) {
+  const headers = {
+    'Accept-Version': 'v1',
+    'Authorization': 'Client-ID LiP8e9DqYD8V_xv9LgnOXVId10_yYyZouztSleadyYg',
+  };
+
+  return axios.get(`https://api.unsplash.com/search/photos?page=${page}&query=restaurant`, { headers });
+}
 
 module.exports = router;

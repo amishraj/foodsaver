@@ -15,7 +15,6 @@ export class RestaurantComponent implements OnInit {
   showVegetarian: boolean = false;
   showVegan: boolean = false;
   showGlutenFree: boolean = false;
-  //meals = MEALS
 
   constructor(private route: ActivatedRoute, private renderer: Renderer2, private router: Router) {
     this.route.params.subscribe(params => {
