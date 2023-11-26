@@ -80,7 +80,6 @@ export class MealComponent implements OnInit {
   closeModalReserve() {
     this.modalReserveIsActive = false;
     this.reserveSuccess = false;
-    this.router.navigate(['/']);
   }
 
   selectTimeSlot(slot: string) {
