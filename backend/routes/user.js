@@ -17,7 +17,11 @@ router.post("/signup", (req, res, next) => {
       lastName: req.body.lastName,
       address: req.body.address,
       phone: req.body.phone,
-      status: req.body.status
+      status: req.body.status,
+      type: req.body.type,
+      ongoingReservations:[],
+      historyReservations:[],
+      canceledReservations:[]
     });
     user
       .save()
@@ -65,7 +69,12 @@ router.post("/login", (req, res, next) => {
           lname: fetchedUser.lastName,
           email: fetchedUser.email,
           address: fetchedUser.address,
-          phone: fetchedUser.phone
+          phone: fetchedUser.phone,
+          status: fetchedUser.status,
+          type: fetchedUser.type,
+          ongoingReservations:fetchedUser.ongoingReservations,
+          historyReservations:fetchedUser.historyReservations,
+          canceledReservations:fetchedUser.canceledReservations
         }
       });
     })
@@ -100,7 +109,11 @@ router.get("/me", (req, res) => {
           email: user.email,
           address: user.address,
           phone: user.phone,
-          status: user.status
+          status: user.status,
+          type: user.type,
+          ongoingReservations:user.ongoingReservations,
+          historyReservations:user.historyReservations,
+          canceledReservations:user.canceledReservations
         });
       })
       .catch(function (err) {
@@ -144,6 +157,40 @@ router.post("/verify", async (req, res) => {
   } catch (error) {
     console.error("Error verifying user:", error);
     res.status(500).json({ error: error.message });
+  }
+});
+
+router.get('/getReservations', async (req, res) => {
+  try {
+    // Extract and verify the token from the authorization header
+    let decoded;
+    if (req.headers && req.headers.authorization) {
+      const authorization = req.headers.authorization.split(' ')[1];
+      try {
+        decoded = jwt.verify(authorization, 'secret_this_should_be_longer'); // Use your secret here
+      } catch (e) {
+        return res.status(401).json({ message: 'Unauthorized' });
+      }
+    } else {
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+
+    // Use the decoded userId to fetch ongoing reservations
+    const userId = decoded.userId;
+
+    // Fetch user with ongoing reservations
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const ongoingReservations = user.ongoingReservations;
+
+    return res.status(200).json({ ongoingReservations });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
   }
 });
 

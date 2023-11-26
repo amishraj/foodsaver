@@ -33,16 +33,16 @@
 
     <div class="tabs is-boxed">
       <ul>
-        <li [class.is-active]="activeTab === 'History'" (click)="setActiveTab('History')">
+        <!-- <li *ngIf="user.type=='user'" [class.is-active]="activeTab === 'History'" (click)="setActiveTab('History')">
           <a [ngStyle]="{'color': activeTab === 'History' ? '#720026' : ''}">History</a>
-        </li>
-        <li [class.is-active]="activeTab === 'Ongoing'" (click)="setActiveTab('Ongoing')">
+        </li> -->
+        <li *ngIf="user.type=='user'" [class.is-active]="activeTab === 'Ongoing'" (click)="setActiveTab('Ongoing')">
           <a [ngStyle]="{'color': activeTab === 'Ongoing' ? '#720026' : ''}">Ongoing Reservations</a>
         </li>
-        <li [class.is-active]="activeTab === 'Canceled'" (click)="setActiveTab('Canceled')">
+        <li *ngIf="user.type=='user'" [class.is-active]="activeTab === 'Canceled'" (click)="setActiveTab('Canceled')">
           <a [ngStyle]="{'color': activeTab === 'Canceled' ? '#720026' : ''}">Canceled Reservations</a>
         </li>
-        <li [class.is-active]="activeTab === 'MyRestaurants'" (click)="setActiveTab('MyRestaurants')">
+        <li *ngIf="user.type=='partner'" [class.is-active]="activeTab === 'MyRestaurants'" (click)="setActiveTab('MyRestaurants')">
           <a [ngStyle]="{'color': activeTab === 'MyRestaurants' ? '#720026' : ''}">My Restaurants</a>
         </li>
       </ul>
@@ -68,7 +68,7 @@
               <p class="subtitle is-6">{{ restaurant.email }}</p>
               <!-- Buttons to show and update meals -->
               <button class="button is-light" (click)="showMeals(restaurant)">
-                Show Meals
+                Manage Meals
               </button>
               &nbsp;
               <button class="button is-primary" (click)="openModalMeal(restaurant)">
@@ -81,6 +81,9 @@
       </ul>
     </div>
     
+    <div *ngIf="activeTab === 'Ongoing'">
+      <app-reserve *ngFor="reservation of ongoingReservations; let i=index" [reservation]="ongoingReservations[i]" style="margin-bottom: 10px;"></app-reserve>
+    </div>
   </div>
 </section>
 
@@ -119,7 +122,7 @@
     <section class="modal-card-body">
       <!-- Content ... -->
       <p>Let's help the needy! Fill out the details below to add a meal</p>
-      <app-addmeal [restaurantTitle]="selected"></app-addmeal>
+      <app-addmeal [restaurantTitle]="selected" (close)="mealAdded($event)"></app-addmeal>
     </section>
     <footer class="modal-card-foot">
       <!-- <button class="button is-primary" (click)="saveMealChanges()">Save changes</button> -->

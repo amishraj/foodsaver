@@ -39,7 +39,11 @@ export class AuthService {
             lastName: user.lname,
             address: user.address,
             phone: user.phone,
-            status: user.status
+            status: user.status,
+            type: user.type,
+            ongoingReservations:[],
+            historyReservations:[],
+            canceledReservations:[]
         };
 
         return this.http.post("http://localhost:3000/api/user/signup", authData)
@@ -114,7 +118,11 @@ export class AuthService {
             email: '',
             address: '',
             phone: '',
-            status: ''
+            status: '',
+            type:'',
+            ongoingReservations:[],
+            historyReservations:[],
+            canceledReservations:[]
         };
         this.router.navigate(['/']);
     }
@@ -153,5 +161,24 @@ export class AuthService {
             'Authorization': `Bearer ${this.token}`
         });
         return this.http.post<any>("http://localhost:3000/api/user/verify", {headers:headers});
+    }
+
+    isVerified(){
+        if(this.isAuthenticated){
+            if(this.currentUser.status!="verified"){
+                return false;
+            } else{
+                return true;
+            }
+        }
+        //not auth case
+        return false;
+    }
+
+    getReservations(){
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${this.token}`
+        });
+        return this.http.get<any>("http://localhost:3000/api/user/getReservations", {headers:headers});
     }
 }

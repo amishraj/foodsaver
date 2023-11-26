@@ -9,5 +9,6 @@ export interface Meal{
     image:string,
     glutenFree:boolean,
     vegan:boolean,
-    vegetarian:boolean
+    vegetarian:boolean,
+    status:string
 }

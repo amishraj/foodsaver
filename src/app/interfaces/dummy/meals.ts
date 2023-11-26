@@ -10,7 +10,8 @@ export const MEALS: Meal[]= [
         "image": "salmon.jpg",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Margherita Pizza",
@@ -21,7 +22,8 @@ export const MEALS: Meal[]= [
         "image": "pizza.jpg",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Caesar Salad",
@@ -32,7 +34,8 @@ export const MEALS: Meal[]= [
         "image": "caesar-salad.jpg",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Vegetable Stir-Fry",
@@ -43,7 +46,8 @@ export const MEALS: Meal[]= [
         "image": "stir-fry.jpg",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Chocolate Brownie",
@@ -54,7 +58,8 @@ export const MEALS: Meal[]= [
         "image": "brownie.jpg",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Fruit Salad",
@@ -65,7 +70,8 @@ export const MEALS: Meal[]= [
         "image": "fruit-salad.jpg",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Spaghetti Bolognese",
@@ -76,7 +82,8 @@ export const MEALS: Meal[]= [
         "image": "spaghetti.jpg",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Mushroom Risotto",
@@ -87,7 +94,8 @@ export const MEALS: Meal[]= [
         "image": "risotto.jpg",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Grilled Vegetable Sandwich",
@@ -98,7 +106,8 @@ export const MEALS: Meal[]= [
         "image": "vegetable-sandwich.jpg",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Chicken Caesar Wrap",
@@ -109,7 +118,8 @@ export const MEALS: Meal[]= [
         "image": "caesar-wrap.jpg",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Veggie Burger",
@@ -120,7 +130,8 @@ export const MEALS: Meal[]= [
         "image": "veggie-burger.jpg",
         "glutenFree": false,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Sushi Platter",
@@ -131,7 +142,8 @@ export const MEALS: Meal[]= [
         "image": "sushi.jpg",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Caprese Salad",
@@ -142,7 +154,8 @@ export const MEALS: Meal[]= [
         "image": "caprese-salad.jpg",
         "glutenFree": true,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Green Smoothie",
@@ -153,7 +166,8 @@ export const MEALS: Meal[]= [
         "image": "smoothie.jpg",
         "glutenFree": true,
         "vegan": true,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "BBQ Pulled Pork Sandwich",
@@ -164,7 +178,8 @@ export const MEALS: Meal[]= [
         "image": "bbq-sandwich.jpg",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Fried Rice",
@@ -175,7 +190,8 @@ export const MEALS: Meal[]= [
         "image": "fried-rice.jpg",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Clam Chowder Soup",
@@ -186,7 +202,8 @@ export const MEALS: Meal[]= [
         "image": "clam-chowder.jpg",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Key Lime Pie",
@@ -197,7 +214,8 @@ export const MEALS: Meal[]= [
         "image": "key-lime-pie.jpg",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     },
     {
         "title": "Beef Tacos",
@@ -208,6 +226,7 @@ export const MEALS: Meal[]= [
         "image": "tacos.jpg",
         "glutenFree": false,
         "vegan": false,
-        "vegetarian": true
+        "vegetarian": true,
+        status:"open"
     }
 ]
