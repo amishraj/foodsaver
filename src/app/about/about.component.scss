@@ -1,23 +1,23 @@
-.aboutPage {
-    position: relative; /* Sets up a positioning context for absolutely positioned elements inside */
-    /* Other styles you might need for .aboutPage */
-  }
+// .aboutPage {
+//     position: relative; /* Sets up a positioning context for absolutely positioned elements inside */
+//     /* Other styles you might need for .aboutPage */
+//   }
   
-  .image1 {
-    position: absolute; /* Absolute positioning */
-    top: 0; /* Aligns the top edge of the image to the top of the container */
-    left: 0; /* Aligns the left edge of the image to the left of the container */
-    width: 100%; /* Stretches the image to cover the whole container */
-    height: 100%; /* Stretches the image to cover the whole container */
-    opacity: 0.1; /* Adjusts the transparency; 0.1 is very faint, so adjust as needed */
-    z-index: -1; /* Ensures the image stays behind the text */
-    object-fit: cover; /* Ensures the image covers the div without being stretched out of proportion */
-  }
+//   .image1 {
+//     position: absolute; /* Absolute positioning */
+//     top: 0; /* Aligns the top edge of the image to the top of the container */
+//     left: 0; /* Aligns the left edge of the image to the left of the container */
+//     width: 100%; /* Stretches the image to cover the whole container */
+//     height: 100%; /* Stretches the image to cover the whole container */
+//     opacity: 0.1; /* Adjusts the transparency; 0.1 is very faint, so adjust as needed */
+//     z-index: -1; /* Ensures the image stays behind the text */
+//     object-fit: cover; /* Ensures the image covers the div without being stretched out of proportion */
+//   }
   
-  /* Ensure that the text appears on top of the watermark */
-  .aboutPage p {
-    position: relative;
-    z-index: 10;
-    /* Other styles for your text */
-  }
+//   /* Ensure that the text appears on top of the watermark */
+//   .aboutPage p {
+//     position: relative;
+//     z-index: 10;
+//     /* Other styles for your text */
+//   }
   
