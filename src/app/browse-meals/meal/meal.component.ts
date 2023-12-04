@@ -114,6 +114,7 @@ export class MealComponent implements OnInit {
       (data) => {
         console.log(data)
         this.reserveSuccess = true;
+        this.router.navigate(['/profile'])
       },
       (error) => {
         console.error(error)

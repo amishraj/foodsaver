@@ -126,7 +126,6 @@ export class RestaurantService {
     this.authService.getCurrentUser().subscribe(
       (user: User) => {
         // Move the logic that depends on the fetched user inside this callback
-        console.log(user); // Log the fetched user
         const reservationWithUser = { ...reservation, user };
         this.http.post<any>('http://localhost:3000/api/restaurant/cancelReservation', reservationWithUser, { headers: headers })
           .subscribe(

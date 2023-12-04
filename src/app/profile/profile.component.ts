@@ -40,6 +40,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ongoingReservations!: Reservation[]
+  canceledReservations!: Reservation[]
 
   ngOnInit() {
     this.user = {
@@ -58,21 +59,26 @@ export class ProfileComponent implements OnInit {
     this.authService.getCurrentUser().subscribe(
       (user: User) => {
         this.user = user;
+
+        //set active tabs
+        if (this.user.type === "user") {
+          this.setActiveTab("Ongoing");
+        } else {
+          this.setActiveTab("MyRestaurants");
+          this.restaurantService.getMyRestaurants(user.email).subscribe(
+            (data) => {
+              this.myRestaurants = data.restaurants;
+            },
+            (error) => {
+              console.error('Error fetching restaurants:', error);
+            }
+          )
+        }
         this.isVerified = user.status === "verified" ? true : false;
         this.displayVerifyTag = true;
-
-        this.restaurantService.getMyRestaurants(user.email).subscribe(
-          (data) => {
-            this.myRestaurants = data.restaurants;
-          },
-          (error) => {
-            console.error('Error fetching restaurants:', error);
-          }
-        )
       },
       (error) => {
         console.error(error);
-        // Handle the error if needed
       }
     );
 
@@ -80,6 +86,16 @@ export class ProfileComponent implements OnInit {
     this.authService.getReservations().subscribe(
       (data) => {
         this.ongoingReservations = data.ongoingReservations
+      },
+      (error) => {
+        console.error(error)
+      }
+    )
+
+    //fetch canceled reservations
+    this.authService.getCanceledReservations().subscribe(
+      (data) => {
+        this.canceledReservations = data.canceledReservations
       },
       (error) => {
         console.error(error)
@@ -135,7 +151,7 @@ export class ProfileComponent implements OnInit {
   }
 
   mealAdded($event: boolean) {
-    if($event){
+    if ($event) {
       this.closeModalMeal();
     }
     window.location.reload();

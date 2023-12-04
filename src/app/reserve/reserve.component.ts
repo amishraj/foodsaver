@@ -10,14 +10,24 @@ import { RestaurantService } from '../restaurants/restaurant.service';
 export class ReserveComponent implements OnInit {
 
   @Input() reservation!: Reservation;
+  @Input() canceled!: boolean;
+  isCancelModalActive: boolean = false;
 
   constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit(): void {
   }
 
-  cancel() {
+  confirmCancel() {
     this.restaurantService.cancel(this.reservation);
+    this.closeCancelModal();
+  }
+  openCancelModal() {
+    this.isCancelModalActive = true;
+  }
+
+  closeCancelModal() {
+    this.isCancelModalActive = false;
   }
 
 }

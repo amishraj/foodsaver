@@ -12,9 +12,6 @@
         <p><strong>Address:</strong> {{ user.address }}</p>
         <p><strong>Contact Info:</strong> {{ user.phone }}</p>
         <br>
-        <!-- Add more user info fields as needed -->
-  
-        <!-- Verification status and action -->
         <div class="is-flex is-align-items-center" *ngIf="!isVerified && displayVerifyTag">
           <span class="tag is-warning is-light unverified-label">Unverified</span>
           <button class="button is-primary is-small" (click)="openModalGetVerified()">
@@ -82,7 +79,23 @@
     </div>
     
     <div *ngIf="activeTab === 'Ongoing'">
-      <app-reserve *ngFor="reservation of ongoingReservations; let i=index" [reservation]="ongoingReservations[i]" style="margin-bottom: 10px;"></app-reserve>
+      <ul class="columns is-multiline">
+        <li class="column is-one-third" *ngFor="let reservation of ongoingReservations; let i=index">
+          <div class="card is-fullheight">
+            <app-reserve [reservation]="ongoingReservations[i]" style="margin-bottom: 10px;"></app-reserve>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="activeTab === 'Canceled'">
+      <ul class="columns is-multiline">
+        <li class="column is-one-third" *ngFor="let reservation of canceledReservations; let i=index">
+          <div class="card is-fullheight">
+            <app-reserve [canceled]=true [reservation]="canceledReservations[i]" style="margin-bottom: 10px;"></app-reserve>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </section>

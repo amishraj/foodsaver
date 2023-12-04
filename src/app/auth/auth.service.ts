@@ -181,4 +181,11 @@ export class AuthService {
         });
         return this.http.get<any>("http://localhost:3000/api/user/getReservations", {headers:headers});
     }
+
+    getCanceledReservations(){
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${this.token}`
+        });
+        return this.http.get<any>("http://localhost:3000/api/user/getCanceledReservations", {headers:headers});
+    }
 }

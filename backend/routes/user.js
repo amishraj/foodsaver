@@ -194,4 +194,38 @@ router.get('/getReservations', async (req, res) => {
   }
 });
 
+router.get('/getCanceledReservations', async (req, res) => {
+  try {
+    // Extract and verify the token from the authorization header
+    let decoded;
+    if (req.headers && req.headers.authorization) {
+      const authorization = req.headers.authorization.split(' ')[1];
+      try {
+        decoded = jwt.verify(authorization, 'secret_this_should_be_longer'); // Use your secret here
+      } catch (e) {
+        return res.status(401).json({ message: 'Unauthorized' });
+      }
+    } else {
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+
+    // Use the decoded userId to fetch ongoing reservations
+    const userId = decoded.userId;
+
+    // Fetch user with ongoing reservations
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const canceledReservations = user.canceledReservations;
+
+    return res.status(200).json({ canceledReservations });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
 module.exports = router;
