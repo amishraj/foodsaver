@@ -8,6 +8,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-1234',
     email: 'amishu197@gmail.com',
     rating: '4.5',
+    review:'',
     image:'https://images.unsplash.com/photo-1571241156266-2cf348296ff2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTF8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
 
@@ -44,6 +45,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-1234',
     email: 'amishu197@gmail.com',
     rating: '4.5',
+    review:'',
     image:'https://images.unsplash.com/photo-1571241156266-2cf348296ff2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTF8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
 
@@ -116,6 +118,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-5678',
     email: 'amishu197@gmail.com',
     rating: '4.8',
+    review:'',
     image:'https://images.unsplash.com/photo-1556608172-52d61a005b9e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTJ8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [{
       "title": "Chicken Alfredo Pasta",
@@ -161,6 +164,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-9876',
     email: 'amishu197@gmail.com',
     rating: '4.3',
+    review:'',
     image:'https://images.unsplash.com/photo-1469631423273-6995642a6a40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTN8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -220,6 +224,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-6543',
     email: 'amishu197@gmail.com',
     rating: '4.0',
+    review:'',
     image:'https://images.unsplash.com/photo-1553531889-e6cf4d692b1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTR8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [{
       "title": "Mushroom Risotto",
@@ -277,6 +282,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-3456',
     email: 'amishu197@gmail.com',
     rating: '4.7',
+    review:'',
     image:'https://images.unsplash.com/photo-1671074344915-0dc2ba44c668?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMjAwfHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -324,6 +330,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-4321',
     email: 'amishu197@gmail.com',
     rating: '4.2',
+    review:'',
     image:'https://images.unsplash.com/photo-1598520101714-5fbfb50ea31a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTV8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -383,6 +390,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-8765',
     email: 'amishu197@gmail.com',
     rating: '4.6',
+    review:'',
     image:'https://images.unsplash.com/photo-1553852056-0ca90e897efa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTZ8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -430,6 +438,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-7890',
     email: 'amishu197@gmail.com',
     rating: '4.4',
+    review:'',
     image:'https://images.unsplash.com/photo-1517317914113-cbdb8738087a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTd8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -477,6 +486,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-2345',
     email: 'amishu197@gmail.com',
     rating: '4.9',
+    review:'',
     image:'https://images.unsplash.com/photo-1565320960227-52533d26aa04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTh8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -524,6 +534,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-5678',
     email: 'amishu197@gmail.com',
     rating: '4.1',
+    review:'',
     image:'https://images.unsplash.com/photo-1565847198424-41313629be07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw2OTl8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -571,6 +582,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-3456',
     email: 'amishu197@gmail.com',
     rating: '4.7',
+    review:'',
     image:'https://images.unsplash.com/photo-1542500938-4936c228bc66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHw3MDB8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjk5ODUzNzc4fDA&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -618,6 +630,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-8765',
     email: 'amishu197@gmail.com',
     rating: '4.3',
+    review:'',
     image:'https://images.unsplash.com/photo-1583447059716-4541637d0256?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTkxfHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -665,6 +678,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-4321',
     email: 'amishu197@gmail.com',
     rating: '4.5',
+    review:'',
     image:'https://images.unsplash.com/photo-1553443175-e1ce8896d8f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTkyfHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -712,6 +726,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-1234',
     email: 'amishu197@gmail.com',
     rating: '4.6',
+    review:'',
     image:'https://images.unsplash.com/photo-1583868838589-f6ff3e01cadc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTkzfHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -759,6 +774,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-9876',
     email: 'amishu197@gmail.com',
     rating: '4.2',
+    review:'',
     image:'https://images.unsplash.com/photo-1616045152590-ebda3a20804c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTk0fHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -806,6 +822,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-2345',
     email: 'amishu197@gmail.com',
     rating: '4.4',
+    review:'',
     image:'https://images.unsplash.com/photo-1669310095420-8cd109dba5cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTk1fHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -829,6 +846,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-5678',
     email: 'amishu197@gmail.com',
     rating: '4.8',
+    review:'',
     image:'https://images.unsplash.com/photo-1557595093-bec93a1fafda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTk2fHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -864,6 +882,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-8765',
     email: 'amishu197@gmail.com',
     rating: '4.7',
+    review:'',
     image:'https://images.unsplash.com/photo-1504080996122-28bf81b7c681?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTk3fHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -899,6 +918,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-4321',
     email: 'amishu197@gmail.com',
     rating: '4.5',
+    review:'',
     image:'https://images.unsplash.com/photo-1592823549535-53c18393f1c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTk4fHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
       {
@@ -946,6 +966,7 @@ export const RESTAURANTS: Restaurant[] = [
     phone: '(202) 555-1234',
     email: 'amishu197@gmail.com',
     rating: '4.6',
+    review:'',
     image:'https://images.unsplash.com/photo-1528591922185-a0eb2f8f50b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjY5NTd8MHwxfHNlYXJjaHwxMTk5fHxyZXN0YXVyYW50fGVufDB8fHx8MTY5OTg5NTEwMXww&ixlib=rb-4.0.3&q=80&w=1080',
     meals: [
 

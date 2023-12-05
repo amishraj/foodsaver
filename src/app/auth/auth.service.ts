@@ -38,12 +38,17 @@ export class AuthService {
             firstName: user.fname,
             lastName: user.lname,
             address: user.address,
+            review: user.review,
             phone: user.phone,
             status: user.status,
             type: user.type,
             ongoingReservations:[],
             historyReservations:[],
-            canceledReservations:[]
+            canceledReservations:[],
+            ongoingWaitlistings:[],
+            historyWaitlistings:[],
+            canceledWaitlistings:[]
+            
         };
 
         return this.http.post("http://localhost:3000/api/user/signup", authData)
@@ -122,7 +127,12 @@ export class AuthService {
             type:'',
             ongoingReservations:[],
             historyReservations:[],
-            canceledReservations:[]
+            canceledReservations:[],
+            ongoingWaitlistings:[],
+            historyWaitlistings:[],
+            canceledWaitlistings:[],
+            review:''
+            
         };
         this.router.navigate(['/']);
     }
@@ -182,10 +192,10 @@ export class AuthService {
         return this.http.get<any>("http://localhost:3000/api/user/getReservations", {headers:headers});
     }
 
-    getCanceledReservations(){
+    getWaitlistings(){
         const headers = new HttpHeaders({
             'Authorization': `Bearer ${this.token}`
         });
-        return this.http.get<any>("http://localhost:3000/api/user/getCanceledReservations", {headers:headers});
+        return this.http.get<any>("http://localhost:3000/api/user/getWaitlistings", {headers:headers});
     }
 }

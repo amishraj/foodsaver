@@ -4,10 +4,12 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Meal } from '../interfaces/meal';
 import { Reservation } from '../interfaces/reservation';
+import { Waitlisting } from '../interfaces/waitlisting';
 import { Restaurant } from '../interfaces/restaurant';
 import { RESTAURANTS } from '../interfaces/dummy/restaurants';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../interfaces/user';
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +27,11 @@ export class RestaurantService {
     type: '',
     ongoingReservations: [],
     historyReservations: [],
-    canceledReservations: []
+    canceledReservations: [],
+    ongoingWaitlistings:[],
+    historyWaitlistings:[],
+    canceledWaitlistings:[],
+    review:''
   }
 
   constructor(private http: HttpClient, private authService: AuthService) { }
@@ -118,6 +124,13 @@ export class RestaurantService {
     return this.http.post<any>("http://localhost:3000/api/restaurant/reserve", newReservation, {headers:headers});
   }
 
+  waitlist(newWaitlisting: Waitlisting) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.post<any>("http://localhost:3000/api/restaurant/waitlist", newWaitlisting, {headers:headers});
+  }
+
   cancel(reservation: Reservation){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -126,6 +139,7 @@ export class RestaurantService {
     this.authService.getCurrentUser().subscribe(
       (user: User) => {
         // Move the logic that depends on the fetched user inside this callback
+        console.log(user); // Log the fetched user
         const reservationWithUser = { ...reservation, user };
         this.http.post<any>('http://localhost:3000/api/restaurant/cancelReservation', reservationWithUser, { headers: headers })
           .subscribe(
@@ -146,6 +160,20 @@ export class RestaurantService {
         console.error(error);
       }
     );
-  }
 
+    }
+
+    postRestaurantReview(reviewData: any) {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+      return this.http.post(`${this.apiUrl}/reviews/restaurant`, reviewData, {headers:headers});
+    }
+  
+    postMealReview(reviewData: any) {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+      return this.http.post(`${this.apiUrl}/reviews/meal`, reviewData, {headers:headers});
+    }
 }

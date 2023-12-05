@@ -8,5 +8,6 @@ export interface Restaurant{
     email:string,
     rating:string,
     image:string,
-    meals:Meal[]
+    meals:Meal[],
+    review:string
 }

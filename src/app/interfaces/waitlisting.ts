@@ -2,10 +2,9 @@ import { Meal } from "./meal";
 import { Restaurant } from "./restaurant";
 import { User } from "./user";
 
-export interface Reservation {
+export interface Waitlisting {
     meal: Meal,
     restaurant:string,
-    reservationTime: string,
+    waitlistingTime: string,
     user: User
   }
-

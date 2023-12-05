@@ -12,6 +12,9 @@
         <p><strong>Address:</strong> {{ user.address }}</p>
         <p><strong>Contact Info:</strong> {{ user.phone }}</p>
         <br>
+        <!-- Add more user info fields as needed -->
+  
+        <!-- Verification status and action -->
         <div class="is-flex is-align-items-center" *ngIf="!isVerified && displayVerifyTag">
           <span class="tag is-warning is-light unverified-label">Unverified</span>
           <button class="button is-primary is-small" (click)="openModalGetVerified()">
@@ -39,6 +42,12 @@
         <li *ngIf="user.type=='user'" [class.is-active]="activeTab === 'Canceled'" (click)="setActiveTab('Canceled')">
           <a [ngStyle]="{'color': activeTab === 'Canceled' ? '#720026' : ''}">Canceled Reservations</a>
         </li>
+        <li *ngIf="user.type=='user'" [class.is-active]="activeTab === 'Ongoing1'" (click)="setActiveTab('Ongoing1')">
+          <a [ngStyle]="{'color': activeTab === 'Ongoing' ? '#720026' : ''}">Ongoing Waitlists</a>
+        </li>
+        <li *ngIf="user.type=='user'" [class.is-active]="activeTab === 'Canceled1'" (click)="setActiveTab('Canceled1')">
+          <a [ngStyle]="{'color': activeTab === 'Canceled' ? '#720026' : ''}">Canceled Waitlist</a>
+        </li>
         <li *ngIf="user.type=='partner'" [class.is-active]="activeTab === 'MyRestaurants'" (click)="setActiveTab('MyRestaurants')">
           <a [ngStyle]="{'color': activeTab === 'MyRestaurants' ? '#720026' : ''}">My Restaurants</a>
         </li>
@@ -61,12 +70,14 @@
                 </span>
               </div>
               <p class="subtitle is-6">{{ restaurant.address }}</p>
+              <p class="subtitle is-6">{{ restaurant.review }}</p>
               <p class="subtitle is-6">{{ restaurant.phone }}</p>
               <p class="subtitle is-6">{{ restaurant.email }}</p>
               <!-- Buttons to show and update meals -->
-              <!-- <button class="button is-light" (click)="showMeals(restaurant)">
+              <button class="button is-light" (click)="showMeals(restaurant)">
                 Manage Meals
-              </button> &nbsp; -->
+              </button>
+              &nbsp;
               <button class="button is-primary" (click)="openModalMeal(restaurant)">
                 Add Meals
               </button>
@@ -78,23 +89,10 @@
     </div>
     
     <div *ngIf="activeTab === 'Ongoing'">
-      <ul class="columns is-multiline">
-        <li class="column is-one-third" *ngFor="let reservation of ongoingReservations; let i=index">
-          <div class="card is-fullheight">
-            <app-reserve [reservation]="ongoingReservations[i]" style="margin-bottom: 10px;"></app-reserve>
-          </div>
-        </li>
-      </ul>
+      <app-reserve *ngFor="reservation of ongoingReservations; let i=index" [reservation]="ongoingReservations[i]" style="margin-bottom: 10px;"></app-reserve>
     </div>
-
-    <div *ngIf="activeTab === 'Canceled'">
-      <ul class="columns is-multiline">
-        <li class="column is-one-third" *ngFor="let reservation of canceledReservations; let i=index">
-          <div class="card is-fullheight">
-            <app-reserve [canceled]=true [reservation]="canceledReservations[i]" style="margin-bottom: 10px;"></app-reserve>
-          </div>
-        </li>
-      </ul>
+    <div *ngIf="activeTab === 'Ongoing1'">
+      <app-waitlist *ngFor="waitlisting of ongoingWaitlistings; let i=index" [waitlisting]="ongoingWaitlistings[i]" style="margin-bottom: 10px;"></app-waitlist>
     </div>
   </div>
 </section>

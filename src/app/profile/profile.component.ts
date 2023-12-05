@@ -4,6 +4,7 @@ import { AuthService } from '../auth/auth.service';
 import { Restaurant } from '../interfaces/restaurant';
 import { RestaurantService } from '../restaurants/restaurant.service';
 import { Reservation } from '../interfaces/reservation';
+import { Waitlisting } from '../interfaces/waitlisting';
 
 @Component({
   selector: 'app-profile',
@@ -36,11 +37,15 @@ export class ProfileComponent implements OnInit {
     type: '',
     ongoingReservations: [],
     historyReservations: [],
-    canceledReservations: []
+    canceledReservations: [],
+    ongoingWaitlistings:[],
+    historyWaitlistings:[],
+    canceledWaitlistings:[],
+    review:''
   }
 
   ongoingReservations!: Reservation[]
-  canceledReservations!: Reservation[]
+  ongoingWaitlistings!: Waitlisting[]
 
   ngOnInit() {
     this.user = {
@@ -53,32 +58,31 @@ export class ProfileComponent implements OnInit {
       type: '',
       ongoingReservations: [],
       historyReservations: [],
-      canceledReservations: []
+      canceledReservations: [],
+      ongoingWaitlistings:[],
+      historyWaitlistings:[],
+      canceledWaitlistings:[],
+      review:''
     }
 
     this.authService.getCurrentUser().subscribe(
       (user: User) => {
         this.user = user;
-
-        //set active tabs
-        if (this.user.type === "user") {
-          this.setActiveTab("Ongoing");
-        } else {
-          this.setActiveTab("MyRestaurants");
-          this.restaurantService.getMyRestaurants(user.email).subscribe(
-            (data) => {
-              this.myRestaurants = data.restaurants;
-            },
-            (error) => {
-              console.error('Error fetching restaurants:', error);
-            }
-          )
-        }
         this.isVerified = user.status === "verified" ? true : false;
         this.displayVerifyTag = true;
+
+        this.restaurantService.getMyRestaurants(user.email).subscribe(
+          (data) => {
+            this.myRestaurants = data.restaurants;
+          },
+          (error) => {
+            console.error('Error fetching restaurants:', error);
+          }
+        )
       },
       (error) => {
         console.error(error);
+        // Handle the error if needed
       }
     );
 
@@ -92,15 +96,15 @@ export class ProfileComponent implements OnInit {
       }
     )
 
-    //fetch canceled reservations
-    this.authService.getCanceledReservations().subscribe(
-      (data) => {
-        this.canceledReservations = data.canceledReservations
-      },
-      (error) => {
-        console.error(error)
-      }
-    )
+       //fetch ongoing waitlistss
+       this.authService.getWaitlistings().subscribe(
+        (data) => {
+          this.ongoingWaitlistings = data.ongoingWaitlists
+        },
+        (error) => {
+          console.error(error)
+        }
+      )
   }
 
   //Get verified Modal Methods
@@ -151,7 +155,7 @@ export class ProfileComponent implements OnInit {
   }
 
   mealAdded($event: boolean) {
-    if ($event) {
+    if($event){
       this.closeModalMeal();
     }
     window.location.reload();

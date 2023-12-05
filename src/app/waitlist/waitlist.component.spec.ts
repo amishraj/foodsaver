@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MealComponent } from './meal.component';
+import { WaitlistComponent } from './waitlist.component';
 
-describe('MealComponent', () => {
-  let component: MealComponent;
-  let fixture: ComponentFixture<MealComponent>;
+describe('WaitlistComponent', () => {
+  let component: WaitlistComponent;
+  let fixture: ComponentFixture<WaitlistComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MealComponent]
+      declarations: [WaitlistComponent]
     });
-    fixture = TestBed.createComponent(MealComponent);
+    fixture = TestBed.createComponent(WaitlistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -19,5 +19,3 @@ describe('MealComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-

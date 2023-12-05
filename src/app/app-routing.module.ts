@@ -10,11 +10,13 @@ import { AboutComponent } from './about/about.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth/auth.guard';
 import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
+import { ReviewComponent } from './review/review.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'partner', component: PartnerComponent},
+  { path: 'review', component:ReviewComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'browse-meals', component: BrowseMealsComponent},
