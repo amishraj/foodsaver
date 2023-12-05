@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-content">
+      <!-- Meal Information -->
+      <div>
+        <p class="title is-4">{{ waitlisting.meal.title }}</p>
+        <p><strong>Description:</strong> {{ waitlisting.meal.description }}</p>
+        <div>
+          <span class="tag is-light" *ngIf="waitlisting.meal.vegan">Vegan</span>
+          <span style="margin-left: 2px;" class="tag is-light" *ngIf="waitlisting.meal.vegetarian">Vegetarian</span>
+          <span style="margin-left: 2px;" class="tag is-light" *ngIf="waitlisting.meal.glutenFree">Gluten-Free</span>
+        </div>
+      </div>
+  
+      <!-- waitlisting Time -->
+      <div class="mt-3">
+        <p><strong>waitlisting Time:</strong> {{ waitlisting.waitlistingTime }}</p>
+      </div>
+  
+      <!-- Restaurant Information -->
+      <div class="mt-3">
+        <p class="subtitle is-6">{{ waitlisting.restaurant }}</p>
+      </div>
+    </div>
+  
+    <!-- Action Buttons -->
+    <!-- <div class="card-footer"> -->
+      <!-- <a (click)="cancel()" style="color: #720026;" class="card-footer-item">Cancel waitlist</a> -->
+      <!-- <a class="card-footer-item">View Details</a> -->
+    <!-- </div> -->
+  </div>
+  <br>
+  

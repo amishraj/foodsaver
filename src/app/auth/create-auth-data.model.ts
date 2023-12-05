@@ -1,4 +1,5 @@
 import { Reservation } from "../interfaces/reservation";
+import { Waitlisting } from "../interfaces/waitlisting";
 
 export interface CreateAuthData{
     email: string;
@@ -11,5 +12,8 @@ export interface CreateAuthData{
     type:string,
     ongoingReservations:Reservation[],
     historyReservations:Reservation[],
-    canceledReservations:Reservation[]
+    canceledReservations:Reservation[],
+    ongoingWaitlistings:Waitlisting[],
+    historyWaitlistings:Waitlisting[],
+    canceledWaitlistings:Waitlisting[]
 }

@@ -21,7 +21,10 @@ router.post("/signup", (req, res, next) => {
       type: req.body.type,
       ongoingReservations:[],
       historyReservations:[],
-      canceledReservations:[]
+      canceledReservations:[],
+      ongoingWaitlistings:[],
+      historyWaitlistings:[],
+      canceledWaitlistings:[],
     });
     user
       .save()
@@ -74,7 +77,10 @@ router.post("/login", (req, res, next) => {
           type: fetchedUser.type,
           ongoingReservations:fetchedUser.ongoingReservations,
           historyReservations:fetchedUser.historyReservations,
-          canceledReservations:fetchedUser.canceledReservations
+          canceledReservations:fetchedUser.canceledReservations,
+          ongoingWaitlistings:fetchedUser.ongoingWaitlists,
+          historyWaitlistings:fetchedUser.historyWaitlists,
+          canceledWaitlistings:fetchedUser.canceledWaitlists,
         }
       });
     })
@@ -113,7 +119,10 @@ router.get("/me", (req, res) => {
           type: user.type,
           ongoingReservations:user.ongoingReservations,
           historyReservations:user.historyReservations,
-          canceledReservations:user.canceledReservations
+          canceledReservations:user.canceledReservations,
+          ongoingWaitlistings:user.ongoingWaitlists,
+          historyWaitlistings:user.historyWaitlists,
+          canceledWaitlistings:user.canceledWaitlists,
         });
       })
       .catch(function (err) {
@@ -222,6 +231,40 @@ router.get('/getCanceledReservations', async (req, res) => {
     const canceledReservations = user.canceledReservations;
 
     return res.status(200).json({ canceledReservations });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
+router.get('/getWaitlistings', async (req, res) => {
+  try {
+    // Extract and verify the token from the authorization header
+    let decoded;
+    if (req.headers && req.headers.authorization) {
+      const authorization = req.headers.authorization.split(' ')[1];
+      try {
+        decoded = jwt.verify(authorization, 'secret_this_should_be_longer'); // Use your secret here
+      } catch (e) {
+        return res.status(401).json({ message: 'Unauthorized' });
+      }
+    } else {
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+
+    // Use the decoded userId to fetch ongoing Waitlists
+    const userId = decoded.userId;
+
+    // Fetch user with ongoing Waitlists
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const ongoingWaitlistings = user.ongoingWaitlists;
+
+    return res.status(200).json({ ongoingWaitlistings });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: 'Internal Server Error' });

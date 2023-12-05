@@ -20,6 +20,9 @@ import { AuthInterceptor } from './auth/auth-interceptor';
 import { ProfileComponent } from './profile/profile.component';
 import { AddmealComponent } from './profile/addmeal/addmeal.component';
 import { ReserveComponent } from './reserve/reserve.component';
+import { ReviewComponent } from './review/review.component';
+import { WaitlistComponent } from './waitlist/waitlist.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { ReserveComponent } from './reserve/reserve.component';
     ProfileComponent,
     AddmealComponent,
     ReserveComponent,
+    ReviewComponent,
+    WaitlistComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { AuthService } from '../auth/auth.service';
 import { Restaurant } from '../interfaces/restaurant';
 import { RestaurantService } from '../restaurants/restaurant.service';
 import { Reservation } from '../interfaces/reservation';
+import { Waitlisting } from '../interfaces/waitlisting';
 
 @Component({
   selector: 'app-profile',
@@ -36,11 +37,15 @@ export class ProfileComponent implements OnInit {
     type: '',
     ongoingReservations: [],
     historyReservations: [],
-    canceledReservations: []
+    canceledReservations: [],
+    ongoingWaitlistings: [],
+    historyWaitlistings: [],
+    canceledWaitlistings: []
   }
 
   ongoingReservations!: Reservation[]
   canceledReservations!: Reservation[]
+  ongoingWaitlistings!: Waitlisting[]
 
   ngOnInit() {
     this.user = {
@@ -53,7 +58,10 @@ export class ProfileComponent implements OnInit {
       type: '',
       ongoingReservations: [],
       historyReservations: [],
-      canceledReservations: []
+      canceledReservations: [],
+      ongoingWaitlistings: [],
+      historyWaitlistings: [],
+      canceledWaitlistings: []
     }
 
     this.authService.getCurrentUser().subscribe(
@@ -96,6 +104,16 @@ export class ProfileComponent implements OnInit {
     this.authService.getCanceledReservations().subscribe(
       (data) => {
         this.canceledReservations = data.canceledReservations
+      },
+      (error) => {
+        console.error(error)
+      }
+    )
+
+    //fetch ongoing waitlistss
+    this.authService.getWaitlistings().subscribe(
+      (data) => {
+        this.ongoingWaitlistings = data.ongoingWaitlists
       },
       (error) => {
         console.error(error)

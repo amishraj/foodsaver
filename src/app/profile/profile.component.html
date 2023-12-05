@@ -39,6 +39,12 @@
         <li *ngIf="user.type=='user'" [class.is-active]="activeTab === 'Canceled'" (click)="setActiveTab('Canceled')">
           <a [ngStyle]="{'color': activeTab === 'Canceled' ? '#720026' : ''}">Canceled Reservations</a>
         </li>
+        <li *ngIf="user.type=='user'" [class.is-active]="activeTab === 'Ongoing1'" (click)="setActiveTab('Ongoing1')">
+          <a [ngStyle]="{'color': activeTab === 'Ongoing' ? '#720026' : ''}">Ongoing Waitlists</a>
+        </li>
+        <li *ngIf="user.type=='user'" [class.is-active]="activeTab === 'Canceled1'" (click)="setActiveTab('Canceled1')">
+          <a [ngStyle]="{'color': activeTab === 'Canceled1' ? '#720026' : ''}">Canceled Waitlist</a>
+        </li>
         <li *ngIf="user.type=='partner'" [class.is-active]="activeTab === 'MyRestaurants'" (click)="setActiveTab('MyRestaurants')">
           <a [ngStyle]="{'color': activeTab === 'MyRestaurants' ? '#720026' : ''}">My Restaurants</a>
         </li>
@@ -85,6 +91,10 @@
           </div>
         </li>
       </ul>
+    </div>
+
+    <div *ngIf="activeTab === 'Ongoing1'">
+      <app-waitlist *ngFor="waitlisting of ongoingWaitlistings; let i=index" [waitlisting]="ongoingWaitlistings[i]" style="margin-bottom: 10px;"></app-waitlist>
     </div>
 
     <div *ngIf="activeTab === 'Canceled'">

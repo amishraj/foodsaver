@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Reservation } from 'src/app/interfaces/reservation';
+import { Waitlisting } from 'src/app/interfaces/waitlisting';
 import { Restaurant } from 'src/app/interfaces/restaurant';
 import { User } from 'src/app/interfaces/user';
 import { RestaurantService } from 'src/app/restaurants/restaurant.service';
@@ -29,8 +30,10 @@ export class MealComponent implements OnInit {
   timeSlots: string[] = ['12pm', '3pm', '6pm', '9pm'];
   selectedTimeSlot: string = '';
   modalReserveIsActive = false;
+  modalWaitlistIsActive = false;
   currentUser!: User;
   reserveSuccess = false;
+  waitlistSuccess = false;
 
   auth = false; //is the user authed?
   verified = false; //is the user verified?
@@ -40,6 +43,7 @@ export class MealComponent implements OnInit {
 
   ngOnInit(): void {
     this.reserveSuccess = false;
+    this.waitlistSuccess = false;
     this.authService.getCurrentUser().subscribe(
       (data) => {
         this.currentUser = data;
@@ -77,9 +81,18 @@ export class MealComponent implements OnInit {
     this.modalReserveIsActive = true;
   }
 
+  openModalWaitlist() {
+    this.modalWaitlistIsActive = true;
+  }
+
   closeModalReserve() {
     this.modalReserveIsActive = false;
     this.reserveSuccess = false;
+  }
+
+  closeModalWaitlist(){
+    this.modalWaitlistIsActive = false;
+    this.waitlistSuccess = false;
   }
 
   selectTimeSlot(slot: string) {
@@ -90,9 +103,45 @@ export class MealComponent implements OnInit {
     if (!this.authService.getIsAuth()) {
       console.error("user not authorized")
     }
-
     //authed user can continue
     let newReservation: Reservation = {
+      meal: {
+        title: this.title,
+        description: this.description,
+        zipcode: this.zipcode,
+        calories: this.calories,
+        rating: this.rating,
+        image: this.image,
+        glutenFree: this.isGlutenFree,
+        vegan: this.isVegan,
+        vegetarian: this.isVeg,
+        status: 'open',
+      },
+      restaurant: this.restaurant.title,
+      reservationTime: this.selectedTimeSlot,
+      user: this.currentUser
+    };
+
+    this.restaurantService.reserve(newReservation).subscribe(
+      (data) => {
+        console.log(data)
+        this.reserveSuccess = true;
+      },
+      (error) => {
+        console.error(error)
+        alert("Error during reservation")
+      }
+    );
+  }
+
+
+  confirmWaitlisting() {
+    //check if auth
+    if (!this.authService.getIsAuth()) {
+      console.error("user not authorized")
+    }
+    //authed user can continue
+    let newWaitlisting: Waitlisting = {
       meal: {
         title: this.title,
         description: this.description,
@@ -106,20 +155,26 @@ export class MealComponent implements OnInit {
         status: 'open'
       },
       restaurant: this.restaurant.title,
-      reservationTime: this.selectedTimeSlot,
+      waitlistingTime: this.selectedTimeSlot,
       user: this.currentUser
     };
 
-    this.restaurantService.reserve(newReservation).subscribe(
+    this.restaurantService.waitlist(newWaitlisting).subscribe(
       (data) => {
         console.log(data)
-        this.reserveSuccess = true;
-        this.router.navigate(['/profile'])
+        this.waitlistSuccess = true;
       },
       (error) => {
         console.error(error)
-        alert("Error during reservation")
+        alert("Error during waitlist")
       }
     );
   }
 }
+
+
+
+
+
+
+

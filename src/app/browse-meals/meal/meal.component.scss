@@ -88,3 +88,19 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+.reserve-button .button.is-primary:first-child {
+  margin-right: 10px; /* Adjust the value as needed */
+}
+// .reserve-button .button.is-primary:nth-child(2) {
+//   background-color: white; /* Set the background to white */
+//   color: black; /* Set the text color to black */
+//   border-color: #dddddd; /* Optional: if you want to add a border */
+// }
+
+.waitlist-btn {
+  background-color: white; /* Set the background to white */
+  color: black; /* Set the text color to black */
+  border: 1px solid #dddddd; /* Optional: if you want to add a border */
+  // width: 150px;
+}
+

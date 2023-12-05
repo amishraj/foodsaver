@@ -26,7 +26,10 @@ export class SignupComponent implements OnInit {
     type:'',
     ongoingReservations:[],
     historyReservations:[],
-    canceledReservations:[]
+    canceledReservations:[],
+    ongoingWaitlistings:[],
+    historyWaitlistings:[],
+    canceledWaitlistings:[],
   };
   pg1 = true;
   pwd = '';

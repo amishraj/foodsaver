@@ -1,0 +1,65 @@
+<div class="section is-small">
+  <div class="container is-fluid">
+    <h1 class="title columns is-centered is-full">
+      <strong>Reviews and Feedback</strong>
+    </h1>
+    <br>
+    <h2 class="subtitle columns is-centered">
+      Let others know where to get their food from!
+    </h2>
+  </div>
+  <br><br>
+  <div class="container is-fluid" style="text-align: center;">
+    <!-- Restaurant Selection -->
+    <div>
+      <h1 class="subtitle is-5">Select a <strong>Restaurant: </strong></h1>
+      <div class="select">
+        <select [(ngModel)]="selectedRestaurantTitle" (change)="selectRestaurant()">
+          <option *ngFor="let restaurant of restaurants" [value]="restaurant.title">{{ restaurant.title }}</option>
+        </select>
+      </div>
+    </div>
+
+    <br>
+    <!-- Meal Selection -->
+    <div *ngIf="meals">
+      <h1 class="subtitle is-5">If you want to review a meal, Select a <strong>Meal: </strong></h1>
+      <div class="select">
+        <select [(ngModel)]="selectedMeal" (change)="selectMeal()" id="mealSelect">
+          <option *ngFor="let meal of meals" [value]="meal.title">{{ meal.title }}</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <div *ngIf="showReviewCard" class="card">
+      <div class="card-content">
+        <p class="title is-4 has-text-centered">
+          Post a Review
+        </p>
+
+          <div class="has-text-centered is-small">
+            <app-star-rating (ratingSelected)="onRatingReceived($event)"></app-star-rating>
+            <br>
+          </div>
+
+        <div class="field">
+          <div class="control">
+            <textarea class="textarea" [(ngModel)]="reviewComment" placeholder="Your review comments (optional)..."></textarea>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="field is-grouped is-grouped-centered">
+          <p class="control">
+            <button class="button is-primary" (click)="submitRating()">Post</button>
+          </p>
+          <p class="control">
+            <button class="button is-light" (click)="cancel()">Cancel</button>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

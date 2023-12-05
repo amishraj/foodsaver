@@ -30,6 +30,12 @@ const reservationSchema = mongoose.Schema({
   reservationTime: {type:String, required:true}
 });
 
+const waitlistingSchema = mongoose.Schema({
+  meal: mealSchema,
+  restaurant: {type:String, required:true},
+  waitlistingTime: {type:String, required:true}
+});
+
 const userSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -41,8 +47,12 @@ const userSchema = mongoose.Schema({
   type: {type:String, required:true},
   ongoingReservations:[reservationSchema],
   historyReservations:[reservationSchema],
-  canceledReservations:[reservationSchema]
+  canceledReservations:[reservationSchema],
+  ongoingWaitlistings:[waitlistingSchema],
+  historyWaitlistings:[waitlistingSchema],
+  canceledWaitlistings:[waitlistingSchema]
 });
+
 
 userSchema.plugin(uniqueValidator);
 

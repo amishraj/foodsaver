@@ -1,4 +1,5 @@
 import { Reservation } from "./reservation"
+import { Waitlisting } from "./waitlisting"
 
 export interface User{
     fname:string,
@@ -10,5 +11,8 @@ export interface User{
     type:string,
     ongoingReservations:Reservation[],
     historyReservations:Reservation[],
-    canceledReservations:Reservation[]
+    canceledReservations:Reservation[],
+    ongoingWaitlistings:Waitlisting[],
+    historyWaitlistings:Waitlisting[],
+    canceledWaitlistings:Waitlisting[],
 }
