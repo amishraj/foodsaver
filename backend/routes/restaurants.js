@@ -243,6 +243,43 @@ router.get("/getMeals", (req, res, next) => {
     });
 })
 
+router.get('/getAllMeals', async (req, res) => {
+  try {
+    // Find all restaurants
+    const restaurants = await Restaurant.find();
+
+    // Extract meals from each restaurant
+    const allMeals = restaurants.reduce((meals, restaurant) => {
+      // Concatenate meals from each restaurant
+      return meals.concat(restaurant.meals);
+    }, []);
+
+    res.status(200).json(allMeals);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error.' });
+  }
+});
+
+router.get('/getRestaurantByMealTitle/:title', async (req, res) => {
+  try {
+    const mealTitle = req.params.title;
+
+    // Find the restaurant that contains the specified meal title
+    const restaurant = await Restaurant.findOne({ 'meals.title': mealTitle });
+
+    if (!restaurant) {
+      return res.status(404).json({ message: 'Restaurant not found for the given meal title.' });
+    }
+
+    // Return the restaurant information
+    res.status(200).json(restaurant);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error.' });
+  }
+});
+
 router.post('/reserve', async (req, res) => {
   try {
     const reservation = req.body;
@@ -526,6 +563,8 @@ router.post('/reviews/restaurant', (req, res) => {
       const existingRating = parseFloat(restaurant.rating); // Assuming restaurant.rating is an array of ratings
 
       const newAverageRating = (existingRating+newRating)/2;
+
+      newAverageRating.toFixed(1)
 
       // Update the restaurant's rating field
       restaurant.rating = newAverageRating.toString();

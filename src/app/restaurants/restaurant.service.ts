@@ -57,6 +57,18 @@ export class RestaurantService {
       )
   }
 
+  getAllMeals(): Observable<Meal[]> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.get<any>(this.apiUrl + "/getAllMeals", {headers:headers});
+  }
+
+  getRestaurantByMealTitle(mealTitle: string): Observable<Restaurant> {
+    return this.http.get<Restaurant>(this.apiUrl+"/getRestaurantByMealTitle/"+mealTitle);
+  }
+
   //DUMMY
   // addDummyRestaurants(){
   //   let list = RESTAURANTS;
@@ -92,12 +104,13 @@ export class RestaurantService {
       );
   }
 
-  getRandomImage(page: string) {
+  getRandomImage(page: string, query:string) {
     const headers = new HttpHeaders({
       'Accept-Version': 'v1',
       'Authorization': "Client-ID LiP8e9DqYD8V_xv9LgnOXVId10_yYyZouztSleadyYg" // Add your authorization token if needed
     });
-    return this.http.get<any>("https://api.unsplash.com/search/photos?page="+page+"&query=restaurant&client_id=LiP8e9DqYD8V_xv9LgnOXVId10_yYyZouztSleadyYg")
+
+    return this.http.get<any>("https://api.unsplash.com/search/photos?page="+page+"&query="+query+"&client_id=LiP8e9DqYD8V_xv9LgnOXVId10_yYyZouztSleadyYg")
   }
 
   addMeal(meal:Meal, title:string){

@@ -1,15 +1,15 @@
 <div class="columns">
   <div class="column">
     <div class="meal-card">
-      <img class="meal-image" src="https://via.placeholder.com/200" alt="Meal Image">
+      <!-- <img class="meal-image" src="https://via.placeholder.com/200" alt="Meal Image"> -->
       <div class="meal-details">
         <div class="meal-title">{{title}}</div>
         <div class="meal-description">{{description}}</div>
         <div class="reserve-button">
-          <span *ngIf="!fromRestaurant">
+          <!-- <span *ngIf="fromRestaurant">
             <button class="button is-light">Go to Restaurant </button>
             &nbsp;
-          </span>
+          </span> -->
 
           <button class="button is-primary" [disabled]="!auth || !verified || currentUser.type== 'partner' || status==='reserved'" (click)="openModalReserve()">
             <span *ngIf="status==='open'">Reserve</span>
@@ -41,7 +41,7 @@
 
           <button class="button is-primary" [disabled]="!auth || !verified || currentUser.type== 'partner' || status !=='reserved'" (click)="openModalReserve()">
             <span *ngIf="status==='open'">Join Waitlist</span>
-            <span *ngIf="status==='reserved'">Waitlisted</span>
+            <span *ngIf="status==='reserved'">Join Waitlist</span>
             <div class="tooltip" *ngIf="!auth">
               &nbsp;
               <i class="fas fa-exclamation-triangle"></i>

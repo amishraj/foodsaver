@@ -6,6 +6,7 @@ import { Waitlisting } from 'src/app/interfaces/waitlisting';
 import { Restaurant } from 'src/app/interfaces/restaurant';
 import { User } from 'src/app/interfaces/user';
 import { RestaurantService } from 'src/app/restaurants/restaurant.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-meal',
@@ -27,6 +28,8 @@ export class MealComponent implements OnInit {
   @Input() restaurant!: Restaurant;
   @Input() status!: string;
 
+  imageUrl!:string;
+
   timeSlots: string[] = ['12pm', '3pm', '6pm', '9pm'];
   selectedTimeSlot: string = '';
   modalReserveIsActive = false;
@@ -38,8 +41,9 @@ export class MealComponent implements OnInit {
   auth = false; //is the user authed?
   verified = false; //is the user verified?
   userType = ''; //is the user a partner/user?
+  jsonFileData!: any;
 
-  public constructor(private authService: AuthService, private restaurantService: RestaurantService, private router: Router) { }
+  public constructor(private http: HttpClient, private authService: AuthService, private restaurantService: RestaurantService, private router: Router) { }
 
   ngOnInit(): void {
     this.reserveSuccess = false;
@@ -63,6 +67,28 @@ export class MealComponent implements OnInit {
         this.auth = false;
       }
     )
+
+    // this.http.get('src/app/interfaces/meal_images.json').subscribe((data) => {
+    //   this.jsonFileData = data;
+
+    //   // Check if the meal title exists in the JSON data
+    //   if (this.jsonFileData.hasOwnProperty(this.title)) {
+    //     const imageUrl = this.jsonFileData[this.title];
+    //     // Use the image URL
+    //     console.log('Meal Image URL:', imageUrl);
+    //   } else {
+    //     // If the meal title doesn't exist, call your restaurant service method
+    //     this.restaurantService.getRandomImage("130", this.title).subscribe(
+    //       (data)=>{
+    //         console.log(data);
+    //         //this.jsonFileData[this.title] = randomImageUrl;
+    //         //this.saveUpdatedJsonFile();
+          
+    //         //console.log('Random Image URL:', randomImageUrl);
+    //       }
+    //     );
+    //   }
+    // });
   }
 
   public getRatingColor(): string {
@@ -104,6 +130,44 @@ export class MealComponent implements OnInit {
       console.error("user not authorized")
     }
     //authed user can continue
+    if(!this.restaurant){
+      //search for restaurant
+      this.restaurantService.getRestaurantByMealTitle(this.title).subscribe(
+        (data)=>{
+          this.restaurant=data;
+          let newReservation: Reservation = {
+            meal: {
+              title: this.title,
+              description: this.description,
+              zipcode: this.zipcode,
+              calories: this.calories,
+              rating: this.rating,
+              image: this.image,
+              glutenFree: this.isGlutenFree,
+              vegan: this.isVegan,
+              vegetarian: this.isVeg,
+              status: 'open',
+            },
+            restaurant: this.restaurant.title,
+            reservationTime: this.selectedTimeSlot,
+            user: this.currentUser
+          };
+      
+          this.restaurantService.reserve(newReservation).subscribe(
+            (data) => {
+              console.log(data)
+              this.reserveSuccess = true;
+            },
+            (error) => {
+              console.error(error)
+              alert("Error during reservation")
+            }
+          );
+        },
+        (error)=>{
+          alert("Error encountered. Please try again later")
+        })
+    }
     let newReservation: Reservation = {
       meal: {
         title: this.title,

@@ -11,9 +11,47 @@
 
     <br> <br>
 
-    <div class="container">
-        <app-meal *ngFor="let meal of meals" [title]="meal.title" [description]="meal.description"
-            [rating]="meal.rating" [isVegan]="meal.vegan" [isVeg]="meal.vegetarian"
-            [isGlutenFree]="meal.glutenFree"></app-meal>
-    </div>
+    <section class="section is-small">
+        <div class="container is-fluid">
+            <h2 class="title is-4 columns is-centered">Reserve your meals now</h2>
+            <br>
+            <div class="columns">
+                <div class="column is-one-fifth">
+                    <div class="box">
+                        <h2 class="title is-4">Filters</h2>
+    
+                        <div class="field">
+                            <button class="button is-light" [class.is-primary]="showVegetarian"
+                                (click)="toggleFilter('vegetarian')">
+                                Vegetarian
+                            </button>
+                        </div>
+    
+                        <div class="field">
+                            <button class="button is-light" [class.is-primary]="showVegan" (click)="toggleFilter('vegan')">
+                                Vegan
+                            </button>
+                        </div>
+    
+                        <div class="field">
+                            <button class="button is-light" [class.is-primary]="showGlutenFree"
+                                (click)="toggleFilter('glutenFree')">
+                                Gluten Free
+                            </button>
+                        </div>
+    
+                        <!-- You can add more filter options here -->
+    
+                        <button class="button is-primary" (click)="applyFilters()">Apply Filters</button>
+                    </div>
+                </div>
+    
+                <div class="column">
+                    <app-meal *ngFor="let meal of meals" [title]="meal.title" [description]="meal.description"
+                        [rating]="meal.rating" [zipcode]="meal.zipcode" [status]="meal.status" [calories]="meal.calories" [image]="meal.image" [isVegan]="meal.vegan" [isVeg]="meal.vegetarian"
+                        [isGlutenFree]="meal.glutenFree"></app-meal>
+                </div>
+            </div>
+        </div>
+    </section>
 </section>

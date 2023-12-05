@@ -22,7 +22,7 @@
 
     <br>
     <div class="columns is-centered">
-      <button class="button is-light"> Learn More</button> &nbsp; &nbsp;
+      <button routerLink="/about" class="button is-light"> Learn More </button> &nbsp; &nbsp;
       <button routerLink="/browse-meals" class="button is-primary">Find Meals</button>
     </div>
 
@@ -42,33 +42,33 @@
       <div class="tile is-parent">
         <article class="tile is-child box">
           <figure class="image is-4by3">
-            <img src="assets/rice.jpg" alt="Meal 1">
+            <img src="assets/bakedziti.jpeg" alt="Meal 1">
           </figure>
           <br>
-          <p class="title is-4">Healthy Rice Bowl</p>
-          <button class="button is-primary">Reserve Now</button>
+          <p class="title is-4">{{this.meals[0].title}}</p>
+          <button routerLink="/browse-meals" class="button is-primary">Reserve Now</button>
         </article>
       </div>
 
       <div class="tile is-parent">
         <article class="tile is-child box">
           <figure class="image is-4by3">
-            <img src="assets/avocado.jpg" alt="Meal 2">
+            <img src="assets/tofutacos.jpeg" alt="Meal 2">
           </figure>
           <br>
-          <p class="title is-4">Avocado Deli Soup</p>
-          <button class="button is-primary">Reserve Now</button>
+          <p class="title is-4">{{this.meals[1].title}}</p>
+          <button routerLink="/browse-meals" class="button is-primary">Reserve Now</button>
         </article>
       </div>
 
       <div class="tile is-parent">
         <article class="tile is-child box">
           <figure class="image is-4by3">
-            <img src="assets/tofu.jpg" alt="Meal 3">
+            <img src="assets/caesarsalad.jpeg" alt="Meal 3">
           </figure>
           <br>
-          <p class="title is-4">Tofu Curry</p>
-          <button class="button is-primary">Reserve Now</button>
+          <p class="title is-4">{{this.meals[2].title}}</p>
+          <button routerLink="/browse-meals" class="button is-primary">Reserve Now</button>
         </article>
       </div>
     </div>
@@ -94,11 +94,12 @@
 </nav>
 <br><br>
 <!--How it works-->
+<span id="how-it-works"></span>
 <app-howitworks></app-howitworks>
 <hr>
 <!--Reviews Home-->
 
-<section class="section-center">
+<!-- <section class="section-center">
 <h1 class="title">User Reviews</h1>
 <h2 class="subtitle">See what others are saying about FoodSaver</h2>
 </section>
@@ -207,4 +208,4 @@
   </div>
 </div>
 </div>
-</section>
+</section> -->
