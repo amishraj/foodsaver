@@ -71,7 +71,9 @@
               "browserTarget": "foodsaver:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "disableHostCheck": true,
+          "allowedHosts": ["localhost.run"]
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
